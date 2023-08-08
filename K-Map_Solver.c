@@ -1,1 +1,1 @@
-Designing a K-Map_Solver version 1
+Designing a K-Map_Solver version 2
