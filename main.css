@@ -1,15 +1,24 @@
 .header{
     text-shadow: 3px 3px #b2b2b2;
+    text-align: center;
    }
+.head{
+    text-align: center;
+}
 .button{
          box-shadow: 3px 3px rgb(0, 0, 0);
+         text-align: center;
    }
 .name{
     text-shadow: .25px .25px #b2b2b2;
     font-size: small;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    float: bottom;
    }
 .size{
-    font-weight: bolder;
     text-align: center;
-    font-size: 19px ;
+    font-size: 12px ;
+    text-align: center;
    }
