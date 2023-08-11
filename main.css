@@ -1,1 +1,15 @@
-
+.header{
+    text-shadow: 3px 3px #b2b2b2;
+   }
+.button{
+         box-shadow: 3px 3px rgb(0, 0, 0);
+   }
+.name{
+    text-shadow: .25px .25px #b2b2b2;
+    font-size: small;
+   }
+.size{
+    font-weight: bolder;
+    text-align: center;
+    font-size: 19px ;
+   }
