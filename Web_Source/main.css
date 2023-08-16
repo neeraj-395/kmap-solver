@@ -1,24 +1,32 @@
-.header{
-    text-shadow: 3px 3px #b2b2b2;
-    text-align: center;
-   }
-.head{
-    text-align: center;
+.header {
+  height: auto;
+  width: auto;
+  text-shadow: 3px 3px #b2b2b2;
+  text-align: center;
+  align-self: center;
 }
-.button{
-         box-shadow: 3px 3px rgb(0, 0, 0);
-         text-align: center;
-   }
-.name{
-    text-shadow: .25px .25px #b2b2b2;
-    font-size: small;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    float: bottom;
-   }
-.size{
-    text-align: center;
-    font-size: 12px ;
-    text-align: center;
-   }
+.head {
+  text-align: center;
+}
+.button {
+  box-shadow: 3px 3px black;
+  text-align: center;
+}
+.name {
+  text-shadow: 0.25px 0.25px #b2b2b2;
+  font-size: small;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  float: bottom;
+}
+.size {
+  font-size: 12px;
+  text-align: center;
+}
+.img {
+  height: auto;
+  width: auto;
+  box-shadow: 5px 5px gray;
+  text-align: center;
+}
