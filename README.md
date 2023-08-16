@@ -20,7 +20,7 @@ Still at the developing stage......
 ## Note
 This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. It is not meant for deployment on the internet.
 
-## Devloped by
+## Developed by
 * [Priyanshu Garg](https://github.com/priyanshugarg00 "Priyanshu Garg")
 * [Neeraj Singh](https://github.com/Neeraj395-N3rd "Neeraj Singh")
 * [Sudhanshu Kaul](https://github.com/Sudhanshukaul123 "Sudhanshu Kaul")
