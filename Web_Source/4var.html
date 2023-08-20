@@ -1,116 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>4 Variasble k-map Solver</title>
-</head>
-<style>
-    .mainsq{
-        height: 300px;
-        width: 270px;
-        
+  </head>
+  <style>
+    .head {
+      height: auto;
+      width: auto;
     }
-    .el1{
-        height: 50px;
-        width: auto;
+    .ima {
+      height: auto;
+      width: 300px;
     }
-    .ab{
-       height: auto;
-       width: auto;
+    .mainsq {
+      height: 300px;
+      width: 270px;
     }
-    .b{
-        width: 60px;
-        float: right;
+    .el1 {
+      height: 50px;
+      width: auto;
     }
-    .b1{
-        width: 50px;
-        float: right;
+    .ab {
+      height: auto;
+      width: auto;
     }
-    .el2{
-        height: 100px;
-        width: 50px;
-        float: left;
+    .b {
+      width: 60px;
+      float: right;
     }
-    .a1{
-        height: 55px;
-        width: auto;
+    .b1 {
+      width: 50px;
+      float: right;
     }
-    .sq{
-        height: 220px;
-        width: 212px;
-        float: right;
+    .el2 {
+      height: 100px;
+      width: 50px;
+      float: left;
     }
-    .sq1{
-        height: 50px;
-        width: 50px;
-        float: left;
-        border-color: black;
-        border-style: solid;
-        text-align: right;
+    .a1 {
+      height: 55px;
+      width: auto;
     }
-    .sq2{
-        height: 50px;
-        width: 50px;
-        float: right;
-        border-color: black;
-        border-style: solid;
-        text-align: right;
+    .sq {
+      height: 220px;
+      width: 212px;
+      float: right;
     }
-    .sq3{
-        height: 50px;
-        width: 50px;
-        float: left;
-        border-color: black;
-        border-style: solid;
-        text-align: right;
+    .sq1 {
+      height: 50px;
+      width: 50px;
+      float: left;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
     }
-    .sq4{
-        height: 50px;
-        width: 50px;
-        float: right;
-        border-color: black;
-        border-style: solid;
-        text-align: right;
+    .sq2 {
+      height: 50px;
+      width: 50px;
+      float: right;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
     }
-</style>
-<body>
-    <div>
-
+    .sq3 {
+      height: 50px;
+      width: 50px;
+      float: left;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
+    }
+    .sq4 {
+      height: 50px;
+      width: 50px;
+      float: right;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
+    }
+  </style>
+  <body>
+    <div class="head">
+      <ul>
+        <h3>Steps to solve expression using K-map</h3>
+        <li>Select K-map according to the number of variables.</li>
+        <li>Identify minterms or maxterms as given in problem.</li>
+        <li>
+          For SOP put 1’s in blocks of K-map respective to the minterms (0’s
+          elsewhere).
+        </li>
+        <li>
+          For POS put 0’s in blocks of K-map respective to the maxterms(1’s
+          elsewhere).
+        </li>
+        <li>
+          Make rectangular groups containing total terms in power of two like
+          2,4,8 ..(except 1) and try to cover as many elements as you can in one
+          group.
+        </li>
+        <li>
+          From the groups made in step 5 find the product terms and sum them up
+          for SOP form.
+        </li>
+      </ul>
+    </div>
+    <div style="text-align: center">
+      <img
+        class="ima"
+        src="https://media.geeksforgeeks.org/wp-content/uploads/20220613125927/k4sop.png"
+        alt="4 variables k-map example"
+      />
     </div>
     <div class="mainsq">
-        <div class="el1">
-            <div class="ab">AB\CD</div>
-            <div class="b1">C 'D'</div>
-            <div class="b">CD</div>
-            <div class="b1">'C' D</div>
-            <div class="b">'CD'</div>
+      <div class="el1">
+        <div class="ab">AB\CD</div>
+        <div class="b1">C 'D'</div>
+        <div class="b">CD</div>
+        <div class="b1">'C' D</div>
+        <div class="b">'CD'</div>
+      </div>
+      <div class="el2">
+        <div class="a1">'AB'</div>
+        <div class="a1">'A'B</div>
+        <div class="a1">AB</div>
+        <div class="a">A 'B'</div>
+      </div>
+      <div class="sq">
+        <div class="sq1" style="border-right: 0px solid black">o</div>
+        <div class="sq2">2</div>
+        <div class="sq1" style="border-right: 0px solid black">1</div>
+        <div class="sq2" style="border-right: 0px solid black">3</div>
+        <br />
+        <div class="sq3" style="border-top: 0px solid black">4</div>
+        <div
+          class="sq4"
+          style="border-left: 0px solid black; border-top: 0px solid black"
+        >
+          6
         </div>
-        <div class="el2">
-            <div class="a1">'AB'</div>
-            <div class="a1">'A'B</div>
-            <div class="a1">AB</div>
-            <div class="a">A 'B'</div>
+        <div
+          class="sq3"
+          style="border-left: 0px solid black; border-top: 0px solid black"
+        >
+          5
         </div>
-        <div class="sq">
-         <div class="sq1" style="border-right: 0px solid black;">o</div>
-         <div class="sq2" >2</div>
-         <div class="sq1" style="border-right: 0px solid black;">1</div>
-         <div class="sq2" style="border-right: 0px solid black;">3</div>
-         <br/>
-         <div class="sq3" style="border-top: 0px solid black;">4</div>
-         <div class="sq4" style="border-left: 0px solid black; border-top: 0px solid black;">6</div>
-         <div class="sq3" style="border-left: 0px solid black; border-top: 0px solid black;">5</div>
-         <div class="sq4" style="border-left: 0px solid black; border-top: 0px solid black;">7</div>
-         <br/>
-         <div class="sq1" style="border-right: 0px solid black; border-top: 0px solid black;">12</div>
-         <div class="sq2" style="border-top: 0px solid black;">14</div>
-         <div class="sq1" style="border-right: 0px solid black; border-top: 0px solid black;">13</div>
-         <div class="sq2" style="border-right: 0px solid black; border-top: 0px solid black;">15</div>
-         <br/>
-         <div class="sq3" style="border-top: 0px solid black;">8</div>
-         <div class="sq4" style="border-left: 0px solid black; border-top: 0px solid black;">10</div>
-         <div class="sq3" style="border-left: 0px solid black; border-top: 0px solid black;">9</div>
-         <div class="sq4" style="border-left: 0px solid black; border-top: 0px solid black;">11</div>
+        <div
+          class="sq4"
+          style="border-left: 0px solid black; border-top: 0px solid black"
+        >
+          7
         </div>
+        <br />
+        <div
+          class="sq1"
+          style="border-right: 0px solid black; border-top: 0px solid black"
+        >
+          12
         </div>
-</body>
+        <div class="sq2" style="border-top: 0px solid black">14</div>
+        <div
+          class="sq1"
+          style="border-right: 0px solid black; border-top: 0px solid black"
+        >
+          13
+        </div>
+        <div
+          class="sq2"
+          style="border-right: 0px solid black; border-top: 0px solid black"
+        >
+          15
+        </div>
+        <br />
+        <div class="sq3" style="border-top: 0px solid black">8</div>
+        <div
+          class="sq4"
+          style="border-left: 0px solid black; border-top: 0px solid black"
+        >
+          10
+        </div>
+        <div
+          class="sq3"
+          style="border-left: 0px solid black; border-top: 0px solid black"
+        >
+          9
+        </div>
+        <div
+          class="sq4"
+          style="border-left: 0px solid black; border-top: 0px solid black"
+        >
+          11
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
