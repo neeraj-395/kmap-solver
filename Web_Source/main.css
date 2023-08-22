@@ -7,10 +7,16 @@
 }
 .head {
   text-align: center;
+  font-family: 'Baskerville', sans-serif;
+  text-shadow: 2px 2px grey;
 }
 .button {
   box-shadow: 3px 3px black;
   text-align: center;
+}
+.button:hover{
+   background-color:aqua;
+   box-shadow: 4px 4px gray;
 }
 .name {
   text-shadow: 0.25px 0.25px #b2b2b2;
@@ -21,8 +27,9 @@
   float: bottom;
 }
 .size {
-  font-size: 12px;
-  text-align: center;
+  text-align: left;
+  font-size:large;
+  text-shadow: none;
 }
 .img {
   height: auto;
