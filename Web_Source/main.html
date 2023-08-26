@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>K-MAP SOLVER</title>
+    <title>K-Map_Solver</title>
 </head>
 <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
 <style>
 .heading{
-   margin-left: 700px;
-   margin-right: 700px;
-   margin-top: 1px;
-   font-family: 'Libre Baskerville';
-   color: rgb(49, 46, 46);
-   font-size: 40px;
-
-
+   margin-top: 30px;
+   margin-left: auto;
+   margin-right: auto;
+   font-family:'Time New Roman';
+   color: rgb(20, 20, 20);
+   font-size: 50px;
 }
 .heading:hover{
+  font-family: 'Time New Roman';
+  color: rgb(46, 46, 46);
 
-  margin-left: 700px;
-  margin-right: 700px;
-  transform: rotateZ('1');
-  font-family: 'Libre Baskerville';
-  color: rgb(49, 46, 46);
-  scale: (1.1);
-  animation: zoom-in-zoom-out 1s ease ;
-
-}@keyframes zoom-in-zoom-out {
+}
+@keyframes zoom-in-zoom-out {
   0% {
     transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.25, 1.2);
+    transform: scale(1.10, 1.05);
   }
   100% {
     transform: scale(1, 1);
@@ -38,24 +31,18 @@
 
 }
 .logo{
-    height: 120px;
-    width: 450px;
-    margin-left:700px;
-    margin-right: 700px;
-    margin-top: 20px;
-    filter: drop-shadow(3px 3px 3px grey) contrast(150%);
+    margin-top:auto;
+    margin-left: auto;
+    margin-right:auto;
+    filter: drop-shadow(2px 2px 2px grey) contrast(136%);
 
-}.logo {
-  height: 150px;
-  overflow: hidden;
 }
 .logo img {
-  transition: transform .3s ease;
+  transition: transform .2s ease;
 }
 .logo:hover img {
-  transform: scale(1.05);
-  filter: drop-shadow(0px 0px 10px rgb(145, 142, 142));
-  animation: zoom-in-zoom-out 1s ease ;
+  transform: scale(1);
+  filter: drop-shadow(0px 0px 8px rgb(192, 185, 185));
 }
 .background-clip{
   position: fixed;
@@ -67,12 +54,12 @@
     overflow: hidden;
 }
 .background-clip video {
-    object-fit: cover; /* Ensure the video covers the container */
+    object-fit:fill; /* Ensure the video covers the container */
     width: 100%;
     height: 100%;
 }
 .PARA{
-  font-size: 35px;
+  font-size: 25px;
   font-family: 'Libre Baskerville';
 }
 .button{
@@ -87,89 +74,74 @@
   cursor: pointer;
 }
 .text{
+  font-family: 'Libre Baskerville';
   color: white;
   text-align: center;
   display: inline-block;
-  font-size: 20px;
+  font-size: 25px;
 }
 .text:hover{
   color: white;
   text-align: center;
   display: inline-block;
-  font-size: 20px;
+  font-size: 25px;
   animation: zoom-in-zoom-out 1s ease ;
 }
 .text-1{
-  color:black;
-  text-align: center;
+  font-family: 'Libre Baskerville';
   display: inline-block;
-  font-size: 20px;
-  overflow: hidden;
+  font-size: 25px;
 }
 .text-1:hover{
-  color:black;
-  text-align: center;
   display: inline-block;
-  font-size: 20px;
-  animation: zoom-in-zoom-out 1s ease;
-  overflow: hidden;
+  font-size: 25px;
 } 
 .name{
  font-family:'Libre Baskerville';
- font-size: 30px;
+ font-size: 25px;
  text-decoration: none;
- color: rgb(103, 99, 99);
+ color: rgb(0, 0, 255);
 }
 .name:hover{
- font-family:'Libre Baskerville';
- font-size: 30px;
+ font-size: 25px;
  text-decoration: none;
  animation: zoom-in-zoom-out 1s ease;
- scale: (1.1);
  color: rgb(50, 46, 46);
- transform: rotateZ('5');
 }
 </style>
 <body>
-    <video src="D:\mera saman ;)\background.mp4" muted autoplay loop class="background-clip"></video>
-    <a href="https://dseu.ac.in/" class="logo" target="_blank"><img src="D:\mera saman ;)\DSEU.PNG"/></a>
+    <a href="https://dseu.ac.in/" class="logo" target="_blank">
+    <div style="text-align: center;">
+    <img src="https://dseu.ac.in/wp-content/themes/university/img/logo_longf.png"  height="97px"/>
+    </div></a>
     <a href="https://en.wikipedia.org/wiki/Karnaugh_map" target="_blank" style="text-decoration: none;">
-    <h1 class="heading" >Karnaugh-Veitch Map</h1></a>
-    <P class="PARA"> &nbsp; &nbsp;&nbsp;A Karnaugh-Map refers to a pictorial method that is utilised to minimise various Boolean 
-    expressions without using the Boolean algebra theorems along with the equation manipulations.</P>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button"> <SPan class="text">Random example</SPan></button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button" ><SPan class="text"> Reset </SPan></button>
-    <br>
-    <br>
-      <span class="text-1"style="font-family: 'Libre Baskerville';">Number of input variables:</span>
-    <select onchange="i-dont-know;"style="padding: 10px; background:#edf2ff; border:none;">
-      <!--nerraj on change khud dekh liyo js code k hisabh se baki mei abhi kuch bhi rakh rha hu -->
-      <option value="1"style="font-family: 'Libre Baskerville';">1</option>
-      <option value="2"style="font-family: 'Libre Baskerville';">2</option>
-      <option value="3"style="font-family: 'Libre Baskerville';">3</option>
-      <option value="4"style="font-family: 'Libre Baskerville';">4</option> 
-    </select>
-    &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-1"style="font-family: 'Libre Baskerville';">Allow Don't-Care:</span>
-    <select onchange="i-dont-know;"style="padding: 10px; background:#edf2ff; border:none;">
-      <!--nerraj on change khud dekh liyo js code k hisabh se baki mei abhi kuch bhi rakh rha hu -->
-      <option value="0" style="font-family: 'Libre Baskerville';">no</option>
-      <option value="1"style="font-family: 'Libre Baskerville';">Yes</option>
-    </select>
-    &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-1"style="font-family: 'Libre Baskerville';">Hide result: </span>
-    <select onchange="i-dont-know;"style="padding: 10px; background:#edf2ff; border:none;">
-      <!--nerraj on change khud dekh liyo js code k hisabh se baki mei abhi kuch bhi rakh rha hu -->
-      <option value="1"style="font-family: 'Libre Baskerville';">hide</option>
-      <option value="0"style="font-family: 'Libre Baskerville';">dont't hide</option>
-    </select>
+    <h1 class="heading" >Karnaugh Map Solver</h1></a>
+
+
+    <p class="PARA"> Welcome to the K-Map Solver, your digital ally in conquering complex digital circuit problems effortlessly.
+       Say goodbye to manual calculations and confusion – our website combines the power of the 
+       <a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm"target="_blank" >
+        <span class="text-1" style="color: black;">Quine-McCluskey Algorithm</span></a> 
+        with user-friendly interactivity to simplify Boolean expression solutions.<br><br>
+        ƒ(A,B...)=mΣ(0,1,2,3.........).
+      </p><br>
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button"> <SPan class="text"> II_Variables </SPan></button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button" ><SPan class="text"> III_Variables </SPan></button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button" ><SPan class="text"> IV_Variables </SPan></button>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
- <h6 class="text-1">
- <span  style="font-family: 'Libre Baskerville';">You can find this website source code at :</span><a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank" style="color: blue;">https://github.com/Neeraj395-N3rd/K-Map_Solver </a>
- </h6>
- <h1>Group members :-) </h1>
-  <a href="https://github.com/priyanshugarg00"target="_blank" ><span class="name" >@Neeraj singh</span></a><br>
-  <a href="https://github.com/Neeraj395-N3rd"target="_blank" ><span class="name" >@Sudhanshu kaul</span></a><br>
-  <a href=" https://github.com/rahul07tiwari"target="_blank" ><span class="name" >@Priyanshu garg</span></a><br>
-  <a href=" https://www.instagram.com/itz_krishu_4u/"target="_blank" ><span class="name" >@Rahul kumar tiwari</span> </a><br>
- 
+ <p class="text-1">•This project is developed using a combination of technologies, including C for the backend logic.<br> 
+  • HTML, CSS, and JavaScript for the frontend user interface.<br>
+  • You can find this website source code at :
+ <a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank"><span class="name">GitHub</span></a><br><br>
+ <b>Note</b> - This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. 
+  It is not meant for deployment on the internet.
+ <p class="text-1">• Devleoped By:<br>
+  <a href="https://github.com/Neeraj395-N3rd"target="_blank" ><span class="name" >@Neeraj_Singh</span></a><br>
+  <a href="https://www.instagram.com/itz_krishu_4u/"target="_blank" ><span class="name" >@Sudhanshu_Kaul</span></a><br>
+  <a href="https://github.com/priyanshugarg00"target="_blank" ><span class="name" >@Priyanshu_Garg</span></a><br>
+  <a href="https://github.com/rahul07tiwari"target="_blank"><span class="name" >@Rahul_Kumar_Tiwari</span></a>
+ </p>
   </body>
 </html>
