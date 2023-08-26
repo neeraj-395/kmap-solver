@@ -1,38 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>  K-Map_Solver </title> 
-       <link rel="stylesheet" href="main.css" />
-        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Libre Baskerville'/>
-        <style>
-            .head{
-                 font-family: 'Libre Baskerville';
-            }
-            .size{
-              font-family: 'Libre Baskerville';
-            }
-            .name{
-              font-family: 'Libre Baskerville';
-            }
-        </style>
-    </head>
-    <body>
-        <div class="header">
-                <h1 class="head" >Karnaugh Map Solver </h1>
-                 <p class="size"> A Karnaugh-Map refers to a pictorial method that is utilised to minimise various Boolean expressions without using the Boolean algebra theorems along with the equation manipulations.</p>
-                 <!-- <a href="https://en.wikipedia.org/wiki/Maurice_Karnaugh"><img class="img" src="https://alchetron.com/cdn/maurice-karnaugh-2fbc7a90-fbac-41fd-8048-af2cbaa762d-resize-750.jpeg" alt="Inventer of k-map Mr.Maurice Karnaugh"/></a> -->
-        </div>
-         <div>
-           <center><p> <a href="2var.html"><button class="button">2 Variable</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="3var.html"><button class="button">3 Variable</button></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="4var.html"><button class="button">4 Variable</button></a></p>    </center>
-         </div>
-         <div>
-          <i><h4 class="name">
-            Priyanshu Garg<br/>  
-            Neeraj Singh<br/> 
-            Sudhanshu Kaul<br/>
-            Rahul Kumar Tiwari
-          
-         </div>
-    </body>
-    
+<head>
+    <title>K-MAP SOLVER</title>
+</head>
+<link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
+<style>
+.heading{
+   margin-left: 700px;
+   margin-right: 700px;
+   margin-top: 1px;
+   font-family: 'Libre Baskerville';
+   color: rgb(49, 46, 46);
+   font-size: 40px;
+
+
+}
+.heading:hover{
+
+  margin-left: 700px;
+  margin-right: 700px;
+  transform: rotateZ('1');
+  font-family: 'Libre Baskerville';
+  color: rgb(49, 46, 46);
+  scale: (1.1);
+  animation: zoom-in-zoom-out 1s ease ;
+
+}@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.25, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+
+}
+.logo{
+    height: 120px;
+    width: 450px;
+    margin-left:700px;
+    margin-right: 700px;
+    margin-top: 20px;
+    filter: drop-shadow(3px 3px 3px grey) contrast(150%);
+
+}.logo {
+  height: 150px;
+  overflow: hidden;
+}
+.logo img {
+  transition: transform .3s ease;
+}
+.logo:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0px 0px 10px rgb(145, 142, 142));
+  animation: zoom-in-zoom-out 1s ease ;
+}
+.background-clip{
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place the video behind other content */
+    overflow: hidden;
+}
+.background-clip video {
+    object-fit: cover; /* Ensure the video covers the container */
+    width: 100%;
+    height: 100%;
+}
+.PARA{
+  font-size: 35px;
+  font-family: 'Libre Baskerville';
+}
+.button{
+  background-color: hsl(120, 2%, 11%);
+  border: none;
+  color: white;
+  padding: 15px 33px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.text{
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+}
+.text:hover{
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  animation: zoom-in-zoom-out 1s ease ;
+}
+.text-1{
+  color:black;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  overflow: hidden;
+}
+.text-1:hover{
+  color:black;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  animation: zoom-in-zoom-out 1s ease;
+  overflow: hidden;
+} 
+.name{
+ font-family:'Libre Baskerville';
+ font-size: 30px;
+ text-decoration: none;
+ color: rgb(103, 99, 99);
+}
+.name:hover{
+ font-family:'Libre Baskerville';
+ font-size: 30px;
+ text-decoration: none;
+ animation: zoom-in-zoom-out 1s ease;
+ scale: (1.1);
+ color: rgb(50, 46, 46);
+ transform: rotateZ('5');
+}
+</style>
+<body>
+    <video src="D:\mera saman ;)\background.mp4" muted autoplay loop class="background-clip"></video>
+    <a href="https://dseu.ac.in/" class="logo" target="_blank"><img src="D:\mera saman ;)\DSEU.PNG"/></a>
+    <a href="https://en.wikipedia.org/wiki/Karnaugh_map" target="_blank" style="text-decoration: none;">
+    <h1 class="heading" >Karnaugh-Veitch Map</h1></a>
+    <P class="PARA"> &nbsp; &nbsp;&nbsp;A Karnaugh-Map refers to a pictorial method that is utilised to minimise various Boolean 
+    expressions without using the Boolean algebra theorems along with the equation manipulations.</P>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button"> <SPan class="text">Random example</SPan></button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button" ><SPan class="text"> Reset </SPan></button>
+    <br>
+    <br>
+      <span class="text-1"style="font-family: 'Libre Baskerville';">Number of input variables:</span>
+    <select onchange="i-dont-know;"style="padding: 10px; background:#edf2ff; border:none;">
+      <!--nerraj on change khud dekh liyo js code k hisabh se baki mei abhi kuch bhi rakh rha hu -->
+      <option value="1"style="font-family: 'Libre Baskerville';">1</option>
+      <option value="2"style="font-family: 'Libre Baskerville';">2</option>
+      <option value="3"style="font-family: 'Libre Baskerville';">3</option>
+      <option value="4"style="font-family: 'Libre Baskerville';">4</option> 
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-1"style="font-family: 'Libre Baskerville';">Allow Don't-Care:</span>
+    <select onchange="i-dont-know;"style="padding: 10px; background:#edf2ff; border:none;">
+      <!--nerraj on change khud dekh liyo js code k hisabh se baki mei abhi kuch bhi rakh rha hu -->
+      <option value="0" style="font-family: 'Libre Baskerville';">no</option>
+      <option value="1"style="font-family: 'Libre Baskerville';">Yes</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-1"style="font-family: 'Libre Baskerville';">Hide result: </span>
+    <select onchange="i-dont-know;"style="padding: 10px; background:#edf2ff; border:none;">
+      <!--nerraj on change khud dekh liyo js code k hisabh se baki mei abhi kuch bhi rakh rha hu -->
+      <option value="1"style="font-family: 'Libre Baskerville';">hide</option>
+      <option value="0"style="font-family: 'Libre Baskerville';">dont't hide</option>
+    </select>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <h6 class="text-1">
+ <span  style="font-family: 'Libre Baskerville';">You can find this website source code at :</span><a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank" style="color: blue;">https://github.com/Neeraj395-N3rd/K-Map_Solver </a>
+ </h6>
+ <h1>Group members :-) </h1>
+  <a href="https://github.com/priyanshugarg00"target="_blank" ><span class="name" >@Neeraj singh</span></a><br>
+  <a href="https://github.com/Neeraj395-N3rd"target="_blank" ><span class="name" >@Sudhanshu kaul</span></a><br>
+  <a href=" https://github.com/rahul07tiwari"target="_blank" ><span class="name" >@Priyanshu garg</span></a><br>
+  <a href=" https://www.instagram.com/itz_krishu_4u/"target="_blank" ><span class="name" >@Rahul kumar tiwari</span> </a><br>
+ 
+  </body>
 </html>
