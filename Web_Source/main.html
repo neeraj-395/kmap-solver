@@ -2,19 +2,25 @@
 <html lang="en">
 <head>
     <title>K-Map_Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+  </script>
 </head>
-<link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
 <style>
 .heading{
    margin-top: 30px;
    margin-left: auto;
    margin-right: auto;
-   font-family:'Time New Roman';
+   font-family: 'Libre Baskerville';
    color: rgb(20, 20, 20);
    font-size: 50px;
 }
 .heading:hover{
-  font-family: 'Time New Roman';
+  font-family: 'Libre Baskerville';
   color: rgb(46, 46, 46);
 
 }
@@ -89,11 +95,12 @@
 }
 .text-1{
   font-family: 'Libre Baskerville';
-  display: inline-block;
+  color: black;
+  text-decoration:none;
   font-size: 25px;
 }
 .text-1:hover{
-  display: inline-block;
+  text-decoration:none;
   font-size: 25px;
 } 
 .name{
@@ -112,7 +119,7 @@
 <body>
     <a href="https://dseu.ac.in/" class="logo" target="_blank">
     <div style="text-align: center;">
-    <img src="https://dseu.ac.in/wp-content/themes/university/img/logo_longf.png"  height="97px"/>
+    <img src="https://dseu.ac.in/wp-content/themes/university/img/logo_longf.png"  height="107px"/>
     </div></a>
     <a href="https://en.wikipedia.org/wiki/Karnaugh_map" target="_blank" style="text-decoration: none;">
     <h1 class="heading" >Karnaugh Map Solver</h1></a>
@@ -120,28 +127,53 @@
 
     <p class="PARA"> Welcome to the K-Map Solver, your digital ally in conquering complex digital circuit problems effortlessly.
        Say goodbye to manual calculations and confusion – our website combines the power of the 
-       <a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm"target="_blank" >
-        <span class="text-1" style="color: black;">Quine-McCluskey Algorithm</span></a> 
-        with user-friendly interactivity to simplify Boolean expression solutions.<br><br>
-        ƒ(A,B...)=mΣ(0,1,2,3.........).
-      </p><br>
+       <a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm"target="_blank" style="text-decoration:none;" >
+        <span class="text-1">Quine-McCluskey Algorithm</span></a> 
+        with user-friendly interactivity to simplify Boolean expression solutions.Whether you're a student, an electronics enthusiast,
+         or a professional in the field of digital logic design,
+         our application is designed to assist you in simplifying complex logical expressions and achieving efficient circuit designs.<br>
+      </p>
+    
+      <p style="font-size: 25px; font-family: 'Libre Baskerville';">
+        Boolean expression:
+        \[\rightarrow (A \wedge  \bar{B} )\vee(A \wedge B )\vee(A \wedge C)\]
+        \[\because(\wedge\rightarrow AND, \vee\rightarrow OR)\]
+        Simplified Boolean Expression:
+        \[\rightarrow B \vee(A\wedge C)\]
+        General Logic Function:
+        \[f(A,B,....)=m\sum (0,1,2,3,4,.....)\]</p><br>
 
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button"> <SPan class="text"> II_Variables </SPan></button>
+    <button type="button"class="button"> <SPan class="text"> II_Variables </SPan></button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button" ><SPan class="text"> III_Variables </SPan></button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"class="button" ><SPan class="text"> IV_Variables </SPan></button>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
- <p class="text-1">•This project is developed using a combination of technologies, including C for the backend logic.<br> 
-  • HTML, CSS, and JavaScript for the frontend user interface.<br>
-  • You can find this website source code at :
- <a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank"><span class="name">GitHub</span></a><br><br>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+      <h4 class="text-1">Why do we use the Quine-McCluskey Algorithm?</h4>
+      <p class="text-1">
+      A logic minimiczation technique must have the following characteristics:<br><br>
+      1. It should have the capability of handling large number of variables.<br>
+      2. It should not depend on the ability of a human user for recognising prime-implicants.<br>
+      3. It should ensure minimised expression.<br>
+      4. It should be suitable for computer solution.<br><br>
+      The Quine-McCluskey minimisation technique satisfies the above requirements and hence can b effectively used for the design of logic circuits. 
+      The K-map technique is not suitable for handling the design of complex digital systems because of the following disadvantages:<br><br>
+      1. Minimisation of logic functions involving more than six variables is unwieldy.<br>
+      2. Recognition of prime-implicants that may form part of the simplified function relies on the ability of the human user making it difficult to be sure whether the best selection has been made.<br>
+    </p>
+    <p class="text-1">•This project is developed using a combination of technologies, including C for the backend logic.<br> 
+      • HTML, CSS, and JavaScript for the frontend user interface.</p>
+      <p class="text-1">• You can find this website source code at :
+  <a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank" style="text-decoration:none;"><span class="name">GitHub</span></a><br><br>
  <b>Note</b> - This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. 
-  It is not meant for deployment on the internet.
- <p class="text-1">• Devleoped By:<br>
-  <a href="https://github.com/Neeraj395-N3rd"target="_blank" ><span class="name" >@Neeraj_Singh</span></a><br>
-  <a href="https://www.instagram.com/itz_krishu_4u/"target="_blank" ><span class="name" >@Sudhanshu_Kaul</span></a><br>
-  <a href="https://github.com/priyanshugarg00"target="_blank" ><span class="name" >@Priyanshu_Garg</span></a><br>
-  <a href="https://github.com/rahul07tiwari"target="_blank"><span class="name" >@Rahul_Kumar_Tiwari</span></a>
+  It is not meant for deployment on the internet.</p>
+ 
+  <p class="text-1">• Devleoped By:<br>
+  <a href="https://github.com/Neeraj395-N3rd"target="_blank" style="text-decoration:none;"><span class="name" >@Neeraj_Singh</span></a><br>
+  <a href="https://www.instagram.com/itz_krishu_4u/"target="_blank" style="text-decoration:none;"><span class="name" >@Sudhanshu_Kaul</span></a><br>
+  <a href="https://github.com/priyanshugarg00"target="_blank" style="text-decoration:none;"><span class="name" >@Priyanshu_Garg</span></a><br>
+  <a href="https://github.com/rahul07tiwari"target="_blank"style="text-decoration:none;"><span class="name" >@Rahul_Kumar_Tiwari</span></a>
  </p>
   </body>
 </html>
