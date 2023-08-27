@@ -1,38 +1,105 @@
-.header {
-  height: auto;
-  width: auto;
-  text-shadow: 3px 3px #b2b2b2;
-  text-align: center;
-  align-self: center;
+.heading {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Libre Baskerville';
+  color: rgb(20, 20, 20);
+  font-size: 50px;
 }
-.head {
-  text-align: center;
-  font-family: 'Baskerville', sans-serif;
-  text-shadow: 2px 2px grey;
+.heading:hover {
+  font-family: 'Libre Baskerville';
+  color: rgb(46, 46, 46);
+}
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.logo {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(2px 2px 2px grey) contrast(136%);
+}
+.logo img {
+  transition: transform 0.2s ease;
+}
+.logo:hover img {
+  transform: scale(1);
+  filter: drop-shadow(0px 0px 8px rgb(192, 185, 185));
+}
+.background-clip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the video behind other content */
+  overflow: hidden;
+}
+.background-clip video {
+  object-fit: fill; /* Ensure the video covers the container */
+  width: 100%;
+  height: 100%;
+}
+.PARA {
+  font-size: 25px;
+  font-family: 'Libre Baskerville';
 }
 .button {
-  box-shadow: 3px 3px black;
+  background-color: hsl(120, 2%, 11%);
+  border: none;
+  color: white;
+  padding: 15px 33px;
   text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
-.button:hover{
-   background-color:aqua;
-   box-shadow: 4px 4px gray;
+.text {
+  font-family: 'Libre Baskerville';
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+}
+.text:hover {
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  animation: zoom-in-zoom-out 1s ease;
+}
+.text-1 {
+  font-family: 'Libre Baskerville';
+  color: black;
+  text-decoration: none;
+  font-size: 25px;
+}
+.text-1:hover {
+  text-decoration: none;
+  font-size: 25px;
 }
 .name {
-  text-shadow: 0.25px 0.25px #b2b2b2;
-  font-size: small;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  float: bottom;
+  font-family: 'Libre Baskerville';
+  font-size: 25px;
+  text-decoration: none;
+  color: rgb(0, 0, 255);
 }
-.size {
-  text-align: left;
-  font-size:large;
-  text-shadow: none;
+.name:hover {
+  font-size: 25px;
+  text-decoration: none;
+  animation: zoom-in-zoom-out 1s ease;
+  color: rgb(50, 46, 46);
 }
-.img {
-  height: auto;
+
   width: auto;
   box-shadow: 5px 5px gray;
   text-align: center;
