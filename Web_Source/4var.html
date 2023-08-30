@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>4 Variasble k-map Solver</title>
+    <title>3 Variasble k-map Solver</title>
   </head>
   <style>
     .head {
@@ -13,7 +13,7 @@
       width: 300px;
     }
     .mainsq {
-      height: 300px;
+      height: 150px;
       width: 263px;
       
     }
@@ -25,16 +25,28 @@
       height: 50px;
       width: 50px;
       float: left;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
     .b {
       height: 40px;
       width: 55px;
       float: right;
+      display: flex;
+      flex-direction:row;
+      align-items: end;
+      justify-content: center;
     }
     .b1 {
       height: 40px;
       width: 50px;
       float: right; 
+      display: flex;
+      flex-direction:row;
+      align-items: end;
+      justify-content: center;
     }
     .el2 {
       height: 100px;
@@ -45,14 +57,22 @@
       height: 50px;
       width: 50px;
       float: left;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content: end;
     }
     .a {
       height: 50px;
       width: 50px;
       float: left;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content: end;
     }
     .sq {
-      height: auto;
+      height: 105px;
       width: auto;
       float: right;
     }
@@ -109,29 +129,21 @@
     </div>
     <div class="mainsq">
       <div class="el1">
-        <div class="ab">AB\CD</div>
-        <div class="b1">
-          <text>C</text>
-          <text style="text-decoration-line: overline;">D</text>
+        <div class="ab">A\BC</div>
+        <div class="b1" >
+            <text style="text-decoration-line: overline;">C</text>
+            <text>B</text>
         </div>
-        <div class="b">CD</div>
+        <div class="b">BC</div>
         <div class="b1">
-          <text style="text-decoration-line: overline;">C</text>
-          <text>D</text>
+          <text style="text-decoration-line: overline;">B</text>
+            <text>C</text> 
         </div>
-        <div class="b" style="text-decoration-line: overline;"">CD</div>
+        <div class="b" style="text-decoration-line: overline;">BC</div>
       </div>
       <div class="el2">
-        <div class="a1" style="text-decoration-line: overline;">AB</div>
-        <div class="a1">
-          <text style="text-decoration-line: overline;">A</text>
-          <text>B</text>
-        </div>
-        <div class="a1">AB</div>
-        <div class="a">
-          <text>A</text>
-          <text style="text-decoration-line: overline;">B</text>
-        </div>
+        <div class="a1" style="text-decoration-line: overline;">A</div>
+        <div class="a">A</div>
       </div>
       <div class="sq">
         <div class="sq1" style="border-right: 0px solid black">0</div>
@@ -140,64 +152,170 @@
         <div class="sq2" style="border-right: 0px solid black">3</div>
         <br />
         <div class="sq3" style="border-top: 0px solid black">4</div>
-        <div
-          class="sq4"
-          style="border-left: 0px solid black; border-top: 0px solid black"
-        >
-          6
+        <div class="sq4" style="border-left: 0px solid black; border-top: 0px solid black">6</div>
+        <div class="sq3" style="border-left: 0px solid black; border-top: 0px solid black">5</div>
+        <div class="sq4"style="border-left: 0px solid black; border-top: 0px solid black">7</div>
+      </div>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3 Variasble k-map Solver</title>
+  </head>
+  <style>
+    .head {
+      height: auto;
+      width: auto;
+    }
+    .ima {
+      height: auto;
+      width: 300px;
+    }
+    .mainsq {
+      height: 150px;
+      width: 263px;
+      
+    }
+    .el1 {
+      height: 50px;
+      width: auto;
+    }
+    .ab {
+      height: 50px;
+      width: 50px;
+      float: left;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
+    }
+    .b {
+      height: 40px;
+      width: 55px;
+      float: right;
+      display: flex;
+      flex-direction:row;
+      align-items: end;
+      justify-content: center;
+    }
+    .b1 {
+      height: 40px;
+      width: 50px;
+      float: right; 
+      display: flex;
+      flex-direction:row;
+      align-items: end;
+      justify-content: center;
+    }
+    .el2 {
+      height: 100px;
+      width: 50px;
+      float: left;
+    }
+    .a1 {
+      height: 50px;
+      width: 50px;
+      float: left;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content: end;
+    }
+    .a {
+      height: 50px;
+      width: 50px;
+      float: left;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content: end;
+    }
+    .sq {
+      height: 105px;
+      width: auto;
+      float: right;
+    }
+    .sq1 {
+      height: 50px;
+      width: 50px;
+      float: left;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
+    }
+    .sq2 {
+      height: 50px;
+      width: 50px;
+      float: right;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
+    }
+    .sq3 {
+      height: 50px;
+      width: 50px;
+      float: left;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
+    }
+    .sq4 {
+      height: 50px;
+      width: 50px;
+      float: right;
+      border-color: black;
+      border-style: solid;
+      text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
+    }
+  </style>
+  <body>
+    </div>
+    <div class="mainsq">
+      <div class="el1">
+        <div class="ab">A\BC</div>
+        <div class="b1" >
+            <text style="text-decoration-line: overline;">C</text>
+            <text>B</text>
         </div>
-        <div
-          class="sq3"
-          style="border-left: 0px solid black; border-top: 0px solid black"
-        >
-          5
+        <div class="b">BC</div>
+        <div class="b1">
+          <text style="text-decoration-line: overline;">B</text>
+            <text>C</text> 
         </div>
-        <div
-          class="sq4"
-          style="border-left: 0px solid black; border-top: 0px solid black"
-        >
-          7
-        </div>
+        <div class="b" style="text-decoration-line: overline;">BC</div>
+      </div>
+      <div class="el2">
+        <div class="a1" style="text-decoration-line: overline;">A</div>
+        <div class="a">A</div>
+      </div>
+      <div class="sq">
+        <div class="sq1" style="border-right: 0px solid black">0</div>
+        <div class="sq2">2</div>
+        <div class="sq1" style="border-right: 0px solid black">1</div>
+        <div class="sq2" style="border-right: 0px solid black">3</div>
         <br />
-        <div
-          class="sq1"
-          style="border-right: 0px solid black; border-top: 0px solid black"
-        >
-          12
-        </div>
-        <div class="sq2" style="border-top: 0px solid black">14</div>
-        <div
-          class="sq1"
-          style="border-right: 0px solid black; border-top: 0px solid black"
-        >
-          13
-        </div>
-        <div
-          class="sq2"
-          style="border-right: 0px solid black; border-top: 0px solid black"
-        >
-          15
-        </div>
-        <br />
-        <div class="sq3" style="border-top: 0px solid black">8</div>
-        <div
-          class="sq4"
-          style="border-left: 0px solid black; border-top: 0px solid black"
-        >
-          10
-        </div>
-        <div
-          class="sq3"
-          style="border-left: 0px solid black; border-top: 0px solid black"
-        >
-          9
-        </div>
-        <div
-          class="sq4"
-          style="border-left: 0px solid black; border-top: 0px solid black"
-        >
-          11
-        </div>
+        <div class="sq3" style="border-top: 0px solid black">4</div>
+        <div class="sq4" style="border-left: 0px solid black; border-top: 0px solid black">6</div>
+        <div class="sq3" style="border-left: 0px solid black; border-top: 0px solid black">5</div>
+        <div class="sq4"style="border-left: 0px solid black; border-top: 0px solid black">7</div>
       </div>
     </div>
   </body>
