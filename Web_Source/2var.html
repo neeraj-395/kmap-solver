@@ -13,23 +13,28 @@
       width: 300px;
     }
     .mainsq {
-      height: 165px;
-      width: 165px;
+      height: 50px;
+      width: 160px;
     }
     .el1 {
       height: 50px;
       width: auto;
     }
     .ab {
-      height: auto;
-      width: auto;
+      height: 50px;
+      width: 50px;
+      float: left;  
+      background-color: aqua;
     }
     .b {
-      width: 60px;
+      width: 50px;
+      height: auto;
       float: right;
+      text-decoration-line: overline;
     }
     .b1 {
       width: 50px;
+      height: auto;
       float: right;
     }
     .el2 {
@@ -38,6 +43,11 @@
       float: left;
     }
     .a1 {
+      height: 50px;
+      width: auto;
+      text-decoration-line: overline;
+    }
+    .a{
       height: 50px;
       width: auto;
     }
@@ -53,7 +63,11 @@
       border-color: black;
       border-style: solid;
       border-right: 0px solid black;
-      text-align: end;
+      text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
     .sq2 {
       height: 50px;
@@ -62,6 +76,10 @@
       border-color: black;
       border-style: solid;
       text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
     .sq3 {
       height: 50px;
@@ -71,6 +89,10 @@
       border-style: solid;
       border-top: 0px solid black;
       text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
     .sq4 {
       height: 50px;
@@ -81,10 +103,14 @@
       border-left: 0px solid black;
       border-top: 0px solid black;
       text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
   </style>
   <body>
-   <!-- <div class="head">
+    <!-- <div class="head">
       <ul>
         <h3>Steps to solve expression using K-map-</h3>
         <li>Select K-map according to the number of variables.</li>
@@ -117,35 +143,24 @@
     </div>-->
     <br />
     <div class="mainsq">
-      <div class="el1">
-        <div class="ab">A\B</div>
+      <div class="el1";>
+        <div class="ab"><!--A\B-->
+          A\B
+        </div>
         <div class="b1">B</div>
-        <div class="b">B'</div>
+        <div class="b">B</div>
       </div>
       <div class="el2">
-        <div class="a1">A'</div>
-        <div class="A">A</div>
+        <div class="a1">A</div>
+        <div class="a">A</div>
       </div>
       <div class="sq">
-        <div class="sq1">
-          0
-        </div>
-        <div class="sq2">
-          1
-        </div>
+        <div class="sq1">0</div>
+        <div class="sq2">1</div>
         <br />
-        <div class="sq3">
-          2
-        </div>
-        <div class="sq4">
-          3
-        </div>
+        <div class="sq3">2</div>
+        <div class="sq4">3</div>
       </div>
-    </div>
-  </body>
-  <script></script>
-</html>
-
     </div>
   </body>
   <script></script>
