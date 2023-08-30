@@ -14,23 +14,27 @@
     }
     .mainsq {
       height: 300px;
-      width: 270px;
+      width: 263px;
+      
     }
     .el1 {
       height: 50px;
       width: auto;
     }
     .ab {
-      height: auto;
-      width: auto;
+      height: 50px;
+      width: 50px;
+      float: left;
     }
     .b {
-      width: 60px;
+      height: 40px;
+      width: 55px;
       float: right;
     }
     .b1 {
+      height: 40px;
       width: 50px;
-      float: right;
+      float: right; 
     }
     .el2 {
       height: 100px;
@@ -38,8 +42,14 @@
       float: left;
     }
     .a1 {
-      height: 55px;
-      width: auto;
+      height: 50px;
+      width: 50px;
+      float: left;
+    }
+    .a {
+      height: 50px;
+      width: 50px;
+      float: left;
     }
     .sq {
       height: auto;
@@ -53,6 +63,10 @@
       border-color: black;
       border-style: solid;
       text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
     .sq2 {
       height: 50px;
@@ -61,6 +75,10 @@
       border-color: black;
       border-style: solid;
       text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
     .sq3 {
       height: 50px;
@@ -69,6 +87,10 @@
       border-color: black;
       border-style: solid;
       text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
     .sq4 {
       height: 50px;
@@ -77,56 +99,42 @@
       border-color: black;
       border-style: solid;
       text-align: right;
+      display: flex;
+      flex-direction:row;
+      align-items:end;
+      justify-content:end;
     }
   </style>
   <body>
-   <!-- <div class="head">
-      <ul>
-        <h3>Steps to solve expression using K-map</h3>
-        <li>Select K-map according to the number of variables.</li>
-        <li>Identify minterms or maxterms as given in problem.</li>
-        <li>
-          For SOP put 1’s in blocks of K-map respective to the minterms (0’s
-          elsewhere).
-        </li>
-        <li>
-          For POS put 0’s in blocks of K-map respective to the maxterms(1’s
-          elsewhere).
-        </li>
-        <li>
-          Make rectangular groups containing total terms in power of two like
-          2,4,8 ..(except 1) and try to cover as many elements as you can in one
-          group.
-        </li>
-        <li>
-          From the groups made in step 5 find the product terms and sum them up
-          for SOP form.
-        </li>
-      </ul>
-    </div>
-    <div style="text-align: center">
-      <img
-        class="ima"
-        src="https://media.geeksforgeeks.org/wp-content/uploads/20220613125927/k4sop.png"
-        alt="4 variables k-map example"
-      />-->
     </div>
     <div class="mainsq">
       <div class="el1">
         <div class="ab">AB\CD</div>
-        <div class="b1">CD'</div>
+        <div class="b1">
+          <text>C</text>
+          <text style="text-decoration-line: overline;">D</text>
+        </div>
         <div class="b">CD</div>
-        <div class="b1">C' D</div>
-        <div class="b">C'D'</div>
+        <div class="b1">
+          <text style="text-decoration-line: overline;">C</text>
+          <text>D</text>
+        </div>
+        <div class="b" style="text-decoration-line: overline;"">CD</div>
       </div>
       <div class="el2">
-        <div class="a1">A'B'</div>
-        <div class="a1">A'B</div>
+        <div class="a1" style="text-decoration-line: overline;">AB</div>
+        <div class="a1">
+          <text style="text-decoration-line: overline;">A</text>
+          <text>B</text>
+        </div>
         <div class="a1">AB</div>
-        <div class="a">AB'</div>
+        <div class="a">
+          <text>A</text>
+          <text style="text-decoration-line: overline;">B</text>
+        </div>
       </div>
       <div class="sq">
-        <div class="sq1" style="border-right: 0px solid black">o</div>
+        <div class="sq1" style="border-right: 0px solid black">0</div>
         <div class="sq2">2</div>
         <div class="sq1" style="border-right: 0px solid black">1</div>
         <div class="sq2" style="border-right: 0px solid black">3</div>
