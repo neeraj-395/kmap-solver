@@ -1,145 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>K-Map_Solver</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="main.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Libre Baskerville"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Libre Baskerville" rel="stylesheet" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"
-    ></script>
-  </head>
-  <style></style>
-  <body>
-    <a href="https://dseu.ac.in/" class="logo" target="_blank">
-      <div style="text-align: center">
-        <img
-          src="https://dseu.ac.in/wp-content/themes/university/img/logo_longf.png"
-          height="107px"
-        /></div
-    ></a>
-    <a
-      href="https://en.wikipedia.org/wiki/Karnaugh_map"
-      target="_blank"
-      style="text-decoration: none"
-    >
-      <h1 class="heading">Karnaugh Map Solver</h1></a
-    >
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
 
-    <p class="PARA">
-      Welcome to the K-Map Solver, your digital ally in conquering complex
-      digital circuit problems effortlessly. Say goodbye to manual calculations
-      and confusion – our website combines the power of the
-      <a
-        href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm"
-        target="_blank"
-        style="text-decoration: none"
-      >
-        <span class="text-1">Quine-McCluskey Algorithm</span></a
-      >
-      with user-friendly interactivity to simplify Boolean expression
-      solutions.Whether you're a student, an electronics enthusiast, or a
-      professional in the field of digital logic design, our application is
-      designed to assist you in simplifying complex logical expressions and
-      achieving efficient circuit designs.<br />
+<body>
+    <a href="https://dseu.ac.in/" target="_blank">
+        <div class="logo">
+            <img src="https://dseu.ac.in/wp-content/themes/university/img/logo_longf.png" height="107px" />
+        </div>
+    </a>
+    <a href="https://en.wikipedia.org/wiki/Karnaugh_map" target="_blank" style="text-decoration: none">
+        <h1 class="heading">Karnaugh Map Solver</h1>
+    </a>
+
+    <p class="para">
+        Welcome to the K-Map Solver, your digital ally in conquering complex
+        digital circuit problems effortlessly. Say goodbye to manual calculations
+        and confusion – our website combines the power of the
+        <a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm" target="_blank" style="text-decoration: none; color:blue">
+            <span class="para">Quine-McCluskey Algorithm</span></a>
+        with user-friendly interactivity to simplify Boolean expression
+        solutions. Whether you're a student, an electronics enthusiast, or a
+        professional in the field of digital logic design, our application is
+        designed to assist you in simplifying complex logical expressions and
+        achieving efficient circuit designs.<br />
     </p>
 
     <p style="font-size: 25px; font-family: 'Libre Baskerville'">
-      Boolean expression: \[\rightarrow (A \wedge \bar{B} )\vee(A \wedge B
-      )\vee(A \wedge C)\] \[\because(\wedge\rightarrow AND, \vee\rightarrow
-      OR)\] Simplified Boolean Expression: \[\rightarrow B \vee(A\wedge C)\]
-      General Logic Function: \[f(A,B,....)=m\sum (0,1,2,3,4,.....)\]
+        Boolean expression: \[\Rightarrow (A \wedge \bar{B} )\vee(A \wedge B)\vee(A \wedge C)\] 
+        \[\because(\wedge\rightarrow AND, \vee\rightarrow OR)\] 
+        Simplified Boolean Expression: \[\Rightarrow B \vee(A\wedge C)\]
+        General Logic Function: \[f(A,B,....)=m\sum (0,1,2,3,.....)\]
     </p>
-    <br />
+    <br /><br />
 
-    <a href="2var.html"
-      ><button type="button" class="button">
-        <span class="text"> II_Variables </span>
-      </button></a
-    >
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="3var.html"
-      ><button type="button" class="button">
-        <span class="text"> III_Variables </span>
-      </button></a
-    >
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="4var.html"
-      ><button type="button" class="button">
-        <span class="text"> IV_Variables </span>
-      </button></a
-    >
+    <a href="2var.html"><button type="button" class="button">
+            <span class="text"> II&nbsp;&nbsp;Variables </span>
+        </button></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="3var.html"><button type="button" class="button">
+            <span class="text"> III&nbsp;&nbsp;Variables </span>
+        </button></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="4var.html"><button type="button" class="button">
+            <span class="text"> IV&nbsp;&nbsp;Variables </span>
+        </button></a>
 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-    <h4 class="text-1">Why do we use the Quine-McCluskey Algorithm?</h4>
-    <p class="text-1">
-      A logic minimiczation technique must have the following
-      characteristics:<br /><br />
-      1. It should have the capability of handling large number of variables.<br />
-      2. It should not depend on the ability of a human user for recognising
-      prime-implicants.<br />
-      3. It should ensure minimised expression.<br />
-      4. It should be suitable for computer solution.<br /><br />
-      The Quine-McCluskey minimisation technique satisfies the above
-      requirements and hence can b effectively used for the design of logic
-      circuits. The K-map technique is not suitable for handling the design of
-      complex digital systems because of the following disadvantages:<br /><br />
-      1. Minimisation of logic functions involving more than six variables is
-      unwieldy.<br />
-      2. Recognition of prime-implicants that may form part of the simplified
-      function relies on the ability of the human user making it difficult to be
-      sure whether the best selection has been made.<br />
-    </p>
-    <p class="text-1">
-      •This project is developed using a combination of technologies, including
-      C for the backend logic.<br />
-      • HTML, CSS, and JavaScript for the frontend user interface.
-    </p>
-    <p class="text-1">
-      • You can find this website source code at :
-      <a
-        href="https://github.com/Neeraj395-N3rd/K-Map_Solver"
-        target="_blank"
-        style="text-decoration: none"
-        ><span class="name">GitHub</span></a
-      ><br /><br />
-      <b>Note</b> - This project is intended for educational purposes and as a
-      demonstration of integrating C programming with web technologies. It is
-      not meant for deployment on the internet.
+    <h4 style="font-size: 28px; font-family: Libre Baskerville;">Why do we use the Quine-McCluskey Algorithm?</h4>
+    <p class="para">A logic minimization technique must have the following characteristics:</p>
+    <ul>
+        <li>It should have the capability of handling a large number of variables.</li>
+        <li>It should not depend on the ability of a human user for recognizing prime-implicants.</li>
+        <li>It should ensure a minimized expression.</li>
+        <li>It should be suitable for computer solution.</li>
+    </ul>
+    <p class="para">The Quine-McCluskey minimization technique satisfies the above requirements and hence can be effectively used for the
+    design of logic circuits. The K-map technique is not suitable for handling the design of complex digital systems because
+    of the following disadvantages:</p>
+    <ul>
+        <li>Minimization of logic functions involving more than six variables is unwieldy.</li>
+        <li>Recognition of prime-implicants that may form part of the simplified function relies on the ability of the human
+            user making it difficult to be sure whether the best selection has been made.</li>
+    </ul>
+    <p class="para">
+        This project is developed using a combination of technologies:
+        <ul>
+        <li>C Language for the backend logic.</li>
+        <li>HTML/CSS for frontend user interface.</li>
+        <li>JavaScript for both frontend and backend</li>
+        <li>You can find this website source code at :
+        <a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank" style="text-decoration: none"><span
+                class="name">GitHub</span></a></li>
+        </ul></p>
+        <p class="para"><b>Note: </b>This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. It is not meant for deployment on the internet.</li>
+        </ul>
     </p>
 
-    <p class="text-1">
-      • Devleoped By:<br />
-      <a
-        href="https://github.com/Neeraj395-N3rd"
-        target="_blank"
-        style="text-decoration: none"
-        ><span class="name">@Neeraj_Singh</span></a
-      ><br />
-      <a
-        href="https://www.instagram.com/itz_krishu_4u/"
-        target="_blank"
-        style="text-decoration: none"
-        ><span class="name">@Sudhanshu_Kaul</span></a
-      ><br />
-      <a
-        href="https://github.com/priyanshugarg00"
-        target="_blank"
-        style="text-decoration: none"
-        ><span class="name">@Priyanshu_Garg</span></a
-      ><br />
-      <a
-        href="https://github.com/rahul07tiwari"
-        target="_blank"
-        style="text-decoration: none"
-        ><span class="name">@Rahul_Kumar_Tiwari</span></a
-      >
+    <p class="para">
+        • Devleoped By:<br />
+        <a href="https://github.com/Neeraj395-N3rd" target="_blank" style="text-decoration: none">
+            <span class="name">@Neeraj_Singh</span>
+        </a><br />
+        <a href="https://www.instagram.com/itz_krishu_4u/" target="_blank" style="text-decoration: none">
+            <span class="name">@Sudhanshu_Kaul</span>
+        </a><br />
+        <a href="https://github.com/priyanshugarg00" target="_blank" style="text-decoration: none">
+            <span class="name">@Priyanshu_Garg</span>
+        </a><br />
+        <a href="https://github.com/rahul07tiwari" target="_blank" style="text-decoration: none"> 
+            <span class="name">@Rahul_Kumar_Tiwari</span>
+        </a>
     </p>
-  </body>
+</body>
+
 </html>

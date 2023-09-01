@@ -1,203 +1,92 @@
 .heading {
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Libre Baskerville';
-    color: rgb(20, 20, 20);
-    font-size: 50px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Libre Baskerville';
+  color: rgb(20, 20, 20);
+  font-size: 50px;
+}
+
+.heading:hover {
+  font-family: 'Libre Baskerville';
+  color: rgb(46, 46, 46);
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
   }
-  .heading:hover {
-    font-family: 'Libre Baskerville';
-    color: rgb(46, 46, 46);
+
+  50% {
+    transform: scale(1.05, 1.05);
   }
-  @keyframes zoom-in-zoom-out {
-    0% {
-      transform: scale(1, 1);
-    }
-    50% {
-      transform: scale(1.1, 1.05);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
+
+  100% {
+    transform: scale(1, 1);
   }
-  .logo {
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    filter: drop-shadow(2px 2px 2px grey) contrast(136%);
-  }
-  .logo img {
-    transition: transform 0.2s ease;
-  }
-  .logo:hover img {
-    transform: scale(1);
-    filter: drop-shadow(0px 0px 8px rgb(192, 185, 185));
-  }
-  .background-clip {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Place the video behind other content */
-    overflow: hidden;
-  }
-  .background-clip video {
-    object-fit: fill; /* Ensure the video covers the container */
-    width: 100%;
-    height: 100%;
-  }
-  .PARA {
-    font-size: 25px;
-    font-family: 'Libre Baskerville';
-  }
-  .button {
-    background-color: hsl(120, 2%, 11%);
-    border: none;
-    color: white;
-    padding: 15px 33px;
-    text-align: center;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .text {
-    font-family: 'Libre Baskerville';
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 25px;
-  }
-  .text:hover {
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 25px;
-    animation: zoom-in-zoom-out 1s ease;
-  }
-  .text-1 {
-    font-family: 'Libre Baskerville';
-    color: black;
-    text-decoration: none;
-    font-size: 25px;
-  }
-  .text-1:hover {
-    text-decoration: none;
-    font-size: 25px;
-  }
-  .name {
-    font-family: 'Libre Baskerville';
-    font-size: 25px;
-    text-decoration: none;
-    color: rgb(0, 0, 255);
-  }
-  .name:hover {
-    font-size: 25px;
-    text-decoration: none;
-    animation: zoom-in-zoom-out 1s ease;
-    color: rgb(50, 46, 46);
-  }
-  .heading {
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Libre Baskerville';
-    color: rgb(20, 20, 20);
-    font-size: 50px;
-  }
-  .heading:hover {
-    font-family: 'Libre Baskerville';
-    color: rgb(46, 46, 46);
-  }
-  @keyframes zoom-in-zoom-out {
-    0% {
-      transform: scale(1, 1);
-    }
-    50% {
-      transform: scale(1.1, 1.05);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
-  }
-  .logo {
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    filter: drop-shadow(2px 2px 2px grey) contrast(136%);
-  }
-  .logo img {
-    transition: transform 0.2s ease;
-  }
-  .logo:hover img {
-    transform: scale(1);
-    filter: drop-shadow(0px 0px 8px rgb(192, 185, 185));
-  }
-  .background-clip {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Place the video behind other content */
-    overflow: hidden;
-  }
-  .background-clip video {
-    object-fit: fill; /* Ensure the video covers the container */
-    width: 100%;
-    height: 100%;
-  }
-  .PARA {
-    font-size: 25px;
-    font-family: 'Libre Baskerville';
-  }
-  .button {
-    background-color: hsl(120, 2%, 11%);
-    border: none;
-    color: white;
-    padding: 15px 33px;
-    text-align: center;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .text {
-    font-family: 'Libre Baskerville';
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 25px;
-  }
-  .text:hover {
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 25px;
-    animation: zoom-in-zoom-out 1s ease;
-  }
-  .text-1 {
-    font-family: 'Libre Baskerville';
-    color: black;
-    text-decoration: none;
-    font-size: 25px;
-  }
-  .text-1:hover {
-    text-decoration: none;
-    font-size: 25px;
-  }
-  .name {
-    font-family: 'Libre Baskerville';
-    font-size: 25px;
-    text-decoration: none;
-    color: rgb(0, 0, 255);
-  }
-  .name:hover {
-    font-size: 25px;
-    text-decoration: none;
-    animation: zoom-in-zoom-out 1s ease;
-    color: rgb(50, 46, 46);
-  }
-  
+}
+
+.logo {
+  text-align: center;
+  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+}
+
+.logo:hover img {
+  filter: drop-shadow(0px 0px 4px rgb(192, 185, 185));
+}
+
+.para {
+  font-size: 25px;
+  font-family: 'Libre Baskerville';
+}
+
+.button {
+  background-color: hsl(120, 2%, 11%);
+  border: none;
+  color: white;
+  padding: 15px 33px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.text {
+  font-family: 'Libre Baskerville';
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+}
+
+.text:hover {
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  animation: zoom-in-zoom-out 1s ease;
+}
+
+.name {
+  font-family: 'Libre Baskerville';
+  font-size: 25px;
+  color: rgb(0, 0, 255);
+}
+
+.name:hover {
+  font-size: 25px;
+  text-align:left;
+  display:inline-block;
+  animation: zoom-in-zoom-out 1s ease;
+  color: rgb(50, 46, 46);
+}
+
+ul{
+  list-style-type:disc;
+}
+li{
+  font-size: 25px;
+  font-family: 'Libre Baskerville';
+  margin-bottom: 10px;
+}
