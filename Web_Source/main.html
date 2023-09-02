@@ -3,7 +3,7 @@
 
 <head>
     <title>K-Map_Solver</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Libre Baskerville" rel="stylesheet" />
@@ -12,12 +12,13 @@
 </head>
 
 <body>
-    <a href="https://dseu.ac.in/" target="_blank">
-        <div class="logo">
-            <img src="https://dseu.ac.in/wp-content/themes/university/img/logo_longf.png" height="107px" />
-        </div>
-    </a>
-    <a href="https://en.wikipedia.org/wiki/Karnaugh_map" target="_blank" style="text-decoration: none">
+    <div class="logo">
+        <a href="https://dseu.ac.in/" target="_blank" style="display: inline-block;">
+            <img src="https://dseu.ac.in/wp-content/themes/university/img/logo_longf.png"/>
+        </a>
+    </div>
+    <hr style="color: grey;">
+    <a href="https://en.wikipedia.org/wiki/Karnaugh_map" target="_blank" style="text-decoration: none; display:inline-flex;">
         <h1 class="heading">Karnaugh Map Solver</h1>
     </a>
 
@@ -25,31 +26,32 @@
         Welcome to the K-Map Solver, your digital ally in conquering complex
         digital circuit problems effortlessly. Say goodbye to manual calculations
         and confusion – our website combines the power of the
-        <a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm" target="_blank" style="text-decoration: none; color:blue">
+        <a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm" 
+          target="_blank" style="text-decoration: none; color:rgb(68, 68, 249)">
             <span class="para">Quine-McCluskey Algorithm</span></a>
-        with user-friendly interactivity to simplify Boolean expression
+        with user-friendly interactivity to simplify boolean expression
         solutions. Whether you're a student, an electronics enthusiast, or a
         professional in the field of digital logic design, our application is
         designed to assist you in simplifying complex logical expressions and
         achieving efficient circuit designs.<br />
     </p>
 
-    <p style="font-size: 25px; font-family: 'Libre Baskerville'">
-        Boolean expression: \[\Rightarrow (A \wedge \bar{B} )\vee(A \wedge B)\vee(A \wedge C)\] 
-        \[\because(\wedge\rightarrow AND, \vee\rightarrow OR)\] 
-        Simplified Boolean Expression: \[\Rightarrow B \vee(A\wedge C)\]
-        General Logic Function: \[f(A,B,....)=m\sum (0,1,2,3,.....)\]
+    <p style="font-size: 22px; font-family: 'Libre Baskerville'">
+        <span class="para">Boolean Expression:</span>\[\Rightarrow (A \wedge \bar{B} )\vee(A \wedge B)\vee(A \wedge C)\] 
+        \[\because(\wedge\rightarrow AND, \vee\rightarrow OR)\]<br />
+        <span class="para">Simplified Boolean Expression:</span>\[\Rightarrow B \vee(A\wedge C)\]<br />
+        <span class="para">General Logic Function:</span>\[f(A,B,....)=m\sum (0,1,2,3,.....)\]
     </p>
     <br /><br />
 
     <a href="2var.html"><button type="button" class="button">
-            <span class="text"> II&nbsp;&nbsp;Variables </span>
+            <span class="text">II&nbsp;&nbsp;Variables</span>
         </button></a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="3var.html"><button type="button" class="button">
-            <span class="text"> III&nbsp;&nbsp;Variables </span>
+            <span class="text">III&nbsp;&nbsp;Variables </span>
         </button></a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="4var.html"><button type="button" class="button">
-            <span class="text"> IV&nbsp;&nbsp;Variables </span>
+            <span class="text">IV&nbsp;&nbsp;Variables</span>
         </button></a>
 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -63,7 +65,7 @@
         <li>It should be suitable for computer solution.</li>
     </ul>
     <p class="para">The Quine-McCluskey minimization technique satisfies the above requirements and hence can be effectively used for the
-    design of logic circuits. The K-map technique is not suitable for handling the design of complex digital systems because
+    design of logic circuits. The K-Map technique is not suitable for handling the design of complex digital systems because
     of the following disadvantages:</p>
     <ul>
         <li>Minimization of logic functions involving more than six variables is unwieldy.</li>
@@ -85,7 +87,7 @@
     </p>
 
     <p class="para">
-        • Devleoped By:<br />
+        § Devleoped By:<br />
         <a href="https://github.com/Neeraj395-N3rd" target="_blank" style="text-decoration: none">
             <span class="name">@Neeraj_Singh</span>
         </a><br />
