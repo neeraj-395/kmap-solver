@@ -52,10 +52,11 @@
   color: white;
   padding: 15px 30px;
   text-align: center;
-  display: inline-flex;
+  display: inline-block;
   font-size: 20px;
   margin: 10px 2px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .text {
