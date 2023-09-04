@@ -1,6 +1,7 @@
 K-Map_Logic_Source/Self_Define_Functions.h
 .vscode/settings.json
-K-Map_Logic_Source/Implementation.c
-K-Map_Logic_Source/Implementation.h
 K-Map_Logic_Source/K-Map_Tester.bat
 K-Map_Logic_Source/input_strings.txt
+K-Map_Logic_Source/Implement.h
+K-Map_Logic_Source/Implement.c
+K-Map_Logic_Source/Implement.exe
