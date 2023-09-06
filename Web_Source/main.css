@@ -1,8 +1,8 @@
 .heading {
   margin-top: 15px;
-  margin-bottom:0px;
+  margin-bottom: 0px;
   margin-left: auto;
-  margin-right: auto;;
+  margin-right: auto;
   font-family: 'Libre Baskerville';
   color: rgb(20, 20, 20);
   font-size: 50px;
@@ -59,7 +59,7 @@
   text-decoration: none;
 }
 
-.text {
+.text1 {
   font-family: 'Libre Baskerville';
   color: white;
   text-align: center;
@@ -67,7 +67,7 @@
   font-size: 25px;
 }
 
-.text:hover {
+.text1:hover {
   color: white;
   text-align: center;
   display: inline-block;
@@ -96,4 +96,151 @@ li{
   font-size: 25px;
   font-family: 'Libre Baskerville';
   margin-bottom: 10px;
+}
+#sho1{
+  display: none;
+}
+#sho2{
+  display: none;
+}
+#sho3{
+  display: none;
+}
+
+/* variyable css */
+.head {
+  height: auto;
+  width: auto;
+}
+
+.mainsq {
+  height: 300px;
+  width: 270px;
+  
+}
+.el1 {
+  height: 50px;
+  width: auto;
+}
+.ab {
+  height: 50px;
+  width: 50px;
+  float: left;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.b {
+  height: 50px;
+  width: 55px;
+  float: right;
+  display: flex;
+  flex-direction:row;
+  align-items: end;
+  justify-content: center;
+}
+.b1 {
+  height: 50px;
+  width: 50px;
+  float: right; 
+  display: flex;
+  flex-direction:row;
+  align-items: end;
+  justify-content: center;
+}
+.el2 {
+  height: 100px;
+  width: 50px;
+  float: left;
+}
+.a1 {
+  height: 50px;
+  width: 50px;
+  float: left;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content: end;
+}
+.a {
+  height: 50px;
+  width: 50px;
+  float: left;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content: end;
+}
+.sq {
+  height: auto;
+  width: auto;
+  float: right;
+}
+.sq1 {
+  height: 50px;
+  width: 50px;
+  float: left;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.sq2 {
+  height: 50px;
+  width: 50px;
+  float: right;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.sq3 {
+  height: 50px;
+  width: 50px;
+  float: left;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.sq4 {
+  height: 50px;
+  width: 50px;
+  float: right;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.main{
+height: 100px;
+width: 450px;
+border: 2px solid black;
+display: flexbox;
+border-radius: 25px; 
+}
+.text-1{
+font-size: 18px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: center;
+display: flex;
+}
+.txt {
+ height: 100%;
+ width: 100%;
+ text-align: center;
+ font-size: 30px;
 }
