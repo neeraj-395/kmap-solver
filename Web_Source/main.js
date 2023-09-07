@@ -1,126 +1,24 @@
-/*function cal20() {
-    document.getElementsByClassName('txt')[0].innerHTML = "1";
-}function cal_20() {
-    document.getElementsByClassName('txt')[0].innerHTML = "X";
-}function cal21() {
-    document.getElementsByClassName('txt')[1].innerHTML = "1";
-}function cal_21() {
-    document.getElementsByClassName('txt')[1].innerHTML = "X";
-}function cal22() {
-    document.getElementsByClassName('txt')[2].innerHTML = "1";
-}function cal_22() {
-    document.getElementsByClassName('txt')[2].innerHTML = "X";
-}function cal23() {
-    document.getElementsByClassName('txt')[3].innerHTML = "1";
-}function cal_23() {
-    document.getElementsByClassName('txt')[3].innerHTML = "X";
-}function cal30() {
-    document.getElementsByClassName('txt')[4].innerHTML = "1";
-}function cal_30() {
-    document.getElementsByClassName('txt')[4].innerHTML = "X";
-}function cal31() {
-    document.getElementsByClassName('txt')[5].innerHTML = "1";
-}function cal_31() {
-    document.getElementsByClassName('txt')[5].innerHTML = "X";
-}function cal32() {
-    document.getElementsByClassName('txt')[6].innerHTML = "1";
-}function cal_32() {
-    document.getElementsByClassName('txt')[6].innerHTML = "X";
-}function cal33() {
-    document.getElementsByClassName('txt')[7].innerHTML = "1";
-}function cal_33() {
-    document.getElementsByClassName('txt')[7].innerHTML = "X";
-}function cal34() {
-    document.getElementsByClassName('txt')[8].innerHTML = "1";
-}function cal_34() {
-    document.getElementsByClassName('txt')[8].innerHTML = "X";
-}function cal35() {
-    document.getElementsByClassName('txt')[9].innerHTML = "1";
-}function cal_35() {
-    document.getElementsByClassName('txt')[9].innerHTML = "X";
-}function cal36() {
-    document.getElementsByClassName('txt')[10].innerHTML = "1";
-}function cal_36() {
-    document.getElementsByClassName('txt')[10].innerHTML = "X";
-}function cal37() {
-    document.getElementsByClassName('txt')[11].innerHTML = "1";
-}function cal_37() {
-    document.getElementsByClassName('txt')[11].innerHTML = "X";
-}function cal40() {
-    document.getElementsByClassName('txt')[12].innerHTML = "1";
-}function cal_40() {
-    document.getElementsByClassName('txt')[12].innerHTML = "X";
-}function cal41() {
-    document.getElementsByClassName('txt')[13].innerHTML = "1";
-}function cal_41() {
-    document.getElementsByClassName('txt')[13].innerHTML = "X";
-}function cal42() {
-    document.getElementsByClassName('txt')[14].innerHTML = "1";
-}function cal_42() {
-    document.getElementsByClassName('txt')[14].innerHTML = "X";
-}function cal43() {
-    document.getElementsByClassName('txt')[15].innerHTML = "1";
-}function cal_43() {
-    document.getElementsByClassName('txt')[15].innerHTML = "X";
-}function cal44() {
-    document.getElementsByClassName('txt')[16].innerHTML = "1";
-}function cal_44() {
-    document.getElementsByClassName('txt')[16].innerHTML = "X";
-}function cal45() {
-    document.getElementsByClassName('txt')[17].innerHTML = "1";
-}function cal_45() {
-    document.getElementsByClassName('txt')[17].innerHTML = "X";
-}function cal46() {
-    document.getElementsByClassName('txt')[18].innerHTML = "1";
-}function cal_46() {
-    document.getElementsByClassName('txt')[18].innerHTML = "X";
-}function cal47() {
-    document.getElementsByClassName('txt')[19].innerHTML = "1";
-}function cal_47() {
-    document.getElementsByClassName('txt')[19].innerHTML = "X";
-}function cal48() {
-    document.getElementsByClassName('txt')[20].innerHTML = "1";
-}function cal_48() {
-    document.getElementsByClassName('txt')[20].innerHTML = "X";
-}function cal49() {
-    document.getElementsByClassName('txt')[21].innerHTML = "1";
-}function cal_49() {
-    document.getElementsByClassName('txt')[21].innerHTML = "X";
-}function cal410() {
-    document.getElementsByClassName('txt')[22].innerHTML = "1";
-}function cal_410() {
-    document.getElementsByClassName('txt')[22].innerHTML = "X";
-}function cal411() {
-    document.getElementsByClassName('txt')[23].innerHTML = "1";
-}function cal_411() {
-    document.getElementsByClassName('txt')[23].innerHTML = "X";
-}function cal412() {
-    document.getElementsByClassName('txt')[24].innerHTML = "1";
-}function cal_412() {
-    document.getElementsByClassName('txt')[24].innerHTML = "X";
-}function cal413() {
-    document.getElementsByClassName('txt')[25].innerHTML = "1";
-}function cal_413() {
-    document.getElementsByClassName('txt')[25].innerHTML = "X";
-}function cal414() {
-    document.getElementsByClassName('txt')[26].innerHTML = "1";
-}function cal_414() {
-    document.getElementsByClassName('txt')[26].innerHTML = "X";
-}function cal415() {
-    document.getElementsByClassName('txt')[27].innerHTML = "1";
-}function cal_415() {
-    document.getElementsByClassName('txt')[27].innerHTML = "X";}*/
-
-function modaldisplay(id){
- var x = document.getElementById(id)
-
- if(x.style.display == 'block'){
-     x.style.display = 'none'
-}
-else{
-     x.style.display = 'block'
- }
-}
+function Click(container_id,ex_filename){
+    var container = document.getElementById(container_id);
+    if(container.style.display=='none'){
+        fetch(ex_filename)
+        .then(response => response.text())
+        .then(htmlCode => {
+            container.innerHTML="";
+            container.innerHTML = htmlCode;
+            MathJax.typeset();
+        })
+        .catch(error => {
+            console.error("Error loading HTML:", error);
+        });
+        container.style.display='block';
+    }
+    else{
+        container.style.display='none';
+        return Click(container_id,ex_filename);
+    }
+    
+};
 
 function call(id) {
     document.getElementById(id).innerHTML = "1";

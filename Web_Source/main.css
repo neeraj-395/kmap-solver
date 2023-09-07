@@ -97,17 +97,8 @@ li{
   font-family: 'Libre Baskerville';
   margin-bottom: 10px;
 }
-#sho1{
-  display: none;
-}
-#sho2{
-  display: none;
-}
-#sho3{
-  display: none;
-}
 
-/* variyable css */
+/* variable css */
 .head {
   height: auto;
   width: auto;
