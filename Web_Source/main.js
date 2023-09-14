@@ -21,8 +21,14 @@ function Click(container_id,ex_filename){
 };
 
 function call(id) {
-    document.getElementById(id).innerHTML = "1";
-}
-function call2(id) {
-    document.getElementById(id).innerHTML = "X";
+    var Min = document.getElementById(id).innerHTML;
+    if(Min ==='0'){
+      document.getElementById(id).innerHTML='1';
+    }
+    else if(Min === '1'){
+      document.getElementById(id).innerHTML='X';
+    }
+    else{
+      document.getElementById(id).innerHTML='0';
+    }
 }

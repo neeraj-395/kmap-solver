@@ -5,3 +5,5 @@ K-Map_Logic_Source/input_strings.txt
 K-Map_Logic_Source/Implement.h
 K-Map_Logic_Source/Implement.c
 K-Map_Logic_Source/Implement.exe
+.vscode/c_cpp_properties.json
+.vscode/launch.json
