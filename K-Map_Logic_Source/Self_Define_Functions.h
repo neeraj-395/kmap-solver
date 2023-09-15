@@ -3,71 +3,29 @@
 #include <string.h>
 #include <stdlib.h>
 
-int Minterm_Counter(int *Minterms, int sor, int soc, int *row)
-{
-  int count = 0;
-  for (int i = 0; i < sor; i++)
-  {
-    if (*(Minterms + (i * soc)) != 2)
-    {
-      *(row++) = i;
-      count++;
-    }
-  }
-  return count;
-}
-
-void BitSetCheck(char *Min, int *Min_in_Bin, int sor, int soc)
+//----------------Decimal to Binary Coverter-------------------//
+void BitSetCheck(char *MinC, char *MinB, size_t *sor, size_t soc)
 {
   int Bit;
-  for (int i = 0; i < sor; i++)
+  int Row = 0;
+  for (int i = 0; i < *sor; i++)
   {
-    if (*(Min++) == '1')
+    if ((*(MinC + i) == '1') || (*(MinC + i) == 'X'))
     {
       Bit = i;
       for (int j = (soc - 1); j >= 0; j--)
       {
-        *(Min_in_Bin + (i * soc) + j) = Bit % 2;
+        *(MinB + (Row * soc) + j) = (char)(48 + (Bit % 2));
         Bit >>= 1;
       }
-    }
-    else
-    {
-      for (int j = (soc - 1); j >= 0; j--)
-      {
-        *(Min_in_Bin + (i * soc) + j) = 2;
-      }
+      Row++;
     }
   }
+  *sor = Row;
 }
 
-void Comparator(int Minterms[][2], int Stage_1[][2], int MinPair_N, int MinPair_M)
-{
-  static int Row = 0;
-  int checker = 0;
-  for (int i = 0; i < 2; i++)
-  {
-    if (Minterms[MinPair_N][i] == 2 || Minterms[MinPair_M][i] == 2)
-    {
-      Stage_1[Row][i] = 2;
-    }
-    else if (checker == 1)
-    {
-      Stage_1[Row][i] = 0;
-    }
-    else if (checker == 0 && (Minterms[MinPair_N][i]) ^ (Minterms[MinPair_M][i]) == 1)
-    {
-      Stage_1[Row][i] = 4;
-    }
-    else
-    {
-      Stage_1[Row][i] = Minterms[MinPair_N][i];
-    }
-  }
-  Row++;
-}
-
-void Boolean_Output(int *Minterms, int soc, int *row, char *result)
+//----------------Binary to Bool Algebraic Output------------------------//
+void Boolean_Output(char *Minterms, size_t soc, size_t *row, char *result)
 {
   do
   {
@@ -75,12 +33,12 @@ void Boolean_Output(int *Minterms, int soc, int *row, char *result)
     result++;
     for (int j = 0; j < soc; j++)
     {
-      if (*(Minterms + ((*row) * soc) + j) == 1)
+      if (*(Minterms + ((*row) * soc) + j) == '1')
       {
         snprintf(result, sizeof(result), "%cx", 65 + j);
         result++;
       }
-      else if (*(Minterms + ((*row) * soc) + j) == 0)
+      else if (*(Minterms + ((*row) * soc) + j) == '0')
       {
         snprintf(result, sizeof(result), "%c'x", 65 + j);
         result += 2;
@@ -109,14 +67,111 @@ void Boolean_Output(int *Minterms, int soc, int *row, char *result)
   } while (*row != 0);
 }
 
-void ArrayDisplay(int *Array, int sor, int soc, char ArrayName[10])
+//--------------2D-Pointer Array Display Function(Temporary)------------//
+void _2D_Ptr_Display(char **Arr, size_t sor, size_t soc, char ArrName[10])
 {
   for (int i = 0; i < sor; i++)
   {
     for (int j = 0; j < soc; j++)
     {
-      printf("%s[%d][%d] = %d, ", ArrayName, i, j, *(Array + i * soc + j));
+      printf("%s[%d][%d] = %c, ", ArrName, i, j, Arr[i][j]);
     }
     printf("\n");
   }
+}
+
+//-----------------------Diff_Set_Counter-------------------------//
+int DSC(char **MinB, size_t soc, size_t M, size_t N, char *Set_count)
+{
+  int diff_count = 0;
+  int set_I = 0, set_II = 0;
+  for (int i = 0; i < soc; i++)
+  {
+    if (MinB[M][i] != MinB[N][i])
+      diff_count++;
+    if (MinB[M][i] == '1')
+      set_I++;
+    if (MinB[N][i] == '1')
+      set_II++;
+  }
+  if (set_I == (set_II - 1))
+    *Set_count = '1';
+
+  else
+    *Set_count = '0';
+
+  return diff_count;
+}
+
+//------------------------Pair & Tick Generator--------------------------//
+int PT_Generator(char **MinB, size_t sor, size_t soc, int *PP, char Tick[])
+{
+  int PProw = 0;
+  char set_count;
+  for (int M = 0; M < sor; M++)
+  {
+    for (int N = (M + 1); N < sor; N++)
+    {
+      if (DSC(MinB, soc, M, N, &set_count) == 1)
+      {
+        *(PP + (PProw * 2)) = M;
+        *(PP + (PProw * 2) + 1) = N;
+        Tick[M] = '1';
+        Tick[N] = '1';
+        PProw++;
+      }
+      else if (set_count == '1')
+      {
+        if (Tick[M] != '1')
+          Tick[M] = '0';
+        if (Tick[N] != '1')
+          Tick[N] = '0';
+      }
+      else if (PProw == 0)
+      {
+        Tick[M] = '0';
+        Tick[N] = '0';
+      }
+    }
+  }
+  return PProw;
+}
+
+//-------------------Prime_Implicant_Collector------------------//
+int Prime_Implicant(char **MinB, char *PI, size_t soc, char Tick[])
+{
+  static int Line = 0;
+  int i = 0, check = 0;
+  while (Tick[i] != '\0')
+  {
+    if (Tick[i] == '0')
+    {
+      strncpy(&PI[Line * soc], &MinB[i][0], sizeof(char) * soc);
+      Line++;
+    }
+    i++;
+  }
+  return Line;
+}
+
+//---Initializing Dynamic_2D-Array----//
+char **_2DPointer(size_t Rows, size_t Col)
+{
+
+  char **Array;
+  Array = (char **)malloc(Rows * sizeof(char *));
+
+  for (int i = 0; i < Rows; i++)
+    Array[i] = (char *)malloc(Col * sizeof(char));
+
+  return Array;
+}
+
+//--------Free The Allocated Array-------//
+void _2DFreeArray(char **Array, size_t Rows)
+{
+  for (int i = 0; i < Rows; i++)
+    free(Array[i]);
+
+  free(Array);
 }
