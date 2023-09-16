@@ -12,6 +12,25 @@
   font-family: 'Libre Baskerville';
   color: rgb(46, 46, 46);
 }
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.logo {
+  text-align: center;
+  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+}
 .clg-name{
   margin-left: 600px;
   width: 90px;
@@ -95,24 +114,6 @@
   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
   width: 150px;
   height: 107px;
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-}
-@keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
-
-  50% {
-    transform: scale(1.05, 1.05);
-  }
-
-  100% {
-    transform: scale(1, 1);
-  }
-}
-
-.logo {
-  text-align: center;
   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
 }
 .logo img {
