@@ -1,7 +1,7 @@
 ## K-Map Solver Web Application
 The K-Map Solver Web Application is a college project aimed at simplifying and optimizing Boolean algebra expressions using Karnaugh Maps. This project is developed using a combination of technologies, including C for the backend logic and HTML, CSS, and JavaScript for the frontend user interface.
 
-![###](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/8269265c-1739-4cc4-9652-2915c22c1fe7)
+![image](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/a89fd35f-c59f-4aa6-b916-3e8615123740)
 
 Still at the developing stage......
 
