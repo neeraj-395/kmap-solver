@@ -26,104 +26,88 @@
     transform: scale(1, 1);
   }
 }
+.header{
+  height: 110px;
+  width: 100%;
+}
+.headerimg{
+  height: 100%;
+  width: 6%;
+}
+.headerimg:hover{
+  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+}
+.headertxt{
+   float: left; 
+   color: rgb(215, 163, 51);
+   font-size: 45px;
+   margin-left: 31%;
+   margin-top: 30px;
+   font-family: 'Libre Baskerville';
+}
+.headertxt:hover{
+  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+}
+/*.logo {
+  height: 107px;
+  width: 1450px;
+  display: flex;
+ }
+ .clg-name{
+   margin-left: 300px;
+   width: 90px;
+   height: 50%SS;
+   text-decoration: none;
+   font-family: 'Libre Baskerville';
+   color: rgb(13, 88, 193);
+   font-size: 45px;
+   padding-left: 30%;
+   padding-right: 30%;
 
-.logo {
-  text-align: center;
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-}
-.clg-name{
-  margin-left: 600px;
-  width: 90px;
-  height: 107px;
-  text-decoration: none;
-  font-family: 'Libre Baskerville';
-  color: rgb(13, 88, 193);
-  font-size: 30px;
-  float: left;
-  font-size: 45px;
-  display: flex;
-  text-align: center;
-}
-.clg-name:hover{
-  margin-left: 600px;
-  width: 90px;
-  height: 107px;
-  text-decoration: none;
-  font-family: 'Libre Baskerville';
-  color: rgb(13, 88, 193);
-  font-size: 30px;
-  float: left;
-  font-size: 45px;
-  display: flex;
-  text-align: center;
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-}
-.clg-name-2{
-  margin-left: 85px;
-  width: 90px;
-  height: 107px;
-  text-decoration: none;
-  font-family: 'Libre Baskerville';
-  color: rgb(215, 163, 51);
-  font-size: 30px;
-  float: left;
-  font-size: 45px;
-  display: flex;
-  text-align: center;
-}
-.clg-name-2:hover{
-  margin-left: 85px;
-  width: 90px;
-  height: 107px;
-  text-decoration: none;
-  font-family: 'Libre Baskerville';
-  color: rgb(215, 163, 51);
-  font-size: 30px;
-  float: left;
-  font-size: 45px;
-  display: flex;
-  text-align: center;
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-}
-.logo-1{
-  display: flex;
-  margin-right: 50px;
-  text-align: right;
-  width: 150px;
-  height: 107px;
-}
-.logo-1:hover{
-  display: flex;
-  margin-right: 50px;
-  text-align: right;
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-  width: 150px;
-  height: 107px;
-}
-.logo-2{
-  margin-left: 700px;
-  display: flex;
-  text-align: right;
-  width: 150px;
-  height: 107px;
-}
-.logo-2:hover{
-  margin-left: 700px;
-  display: flex;
-  text-align: right;
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-  width: 150px;
-  height: 107px;
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-}
-.logo img {
+ }
+ .clg-name:hover{
+   text-align: center;
+   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+ }
+ .clg-name-2{
+   margin-left: 300px;
+   width: 90px;
+   height: 50%;
+   text-decoration: none;
+   font-family: 'Libre Baskerville';
+   color: rgb(215, 163, 51);
+   font-size: 45px;
+   
+ }
+ .clg-name-2:hover{
+   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+ }
+ .logo-1{
+   display: flex;
+   margin-left: 1%;
+   margin-right: 10%;
+   text-align: right;
+   width: 150px;
+   height: 107px;
+ }
+ .logo-1:hover{
+   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+ }
+ .logo-2{
+   margin-left: 38%;
+   display: flex;
+   text-align: right;
+   width: 150px;
+   height: 107px;
+   padding-right: 100px;
+ }
+ .logo-2:hover{
+   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+ }
+ .logo img {
   width:fit-content;
   height: 107px;
-}
-.logo:hover img {
-  filter: drop-shadow(0px 0px 4px rgb(192, 185, 185));
-}
-
+}*/
 .para {
   font-size: 25px;
   font-family: 'Libre Baskerville';
