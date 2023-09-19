@@ -1,3 +1,17 @@
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(216, 212, 212);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa8a8;
+}
+
 .heading {
   margin-top: 15px;
   margin-bottom: 0px;
@@ -27,87 +41,27 @@
   }
 }
 .header{
-  height: 110px;
-  width: 100%;
+block-size: 100px;
 }
 .headerimg{
-  height: 100%;
-  width: 6%;
+max-height: 100px;
 }
 .headerimg:hover{
   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
 }
 .headertxt{
-   float: left; 
-   color: rgb(215, 163, 51);
-   font-size: 45px;
-   margin-left: 31%;
-   margin-top: 30px;
-   font-family: 'Libre Baskerville';
+  height: 100%;
+  font-size: 5.2vmin;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Libre Baskerville';
 }
 .headertxt:hover{
   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
 }
-/*.logo {
-  height: 107px;
-  width: 1450px;
-  display: flex;
- }
- .clg-name{
-   margin-left: 300px;
-   width: 90px;
-   height: 50%SS;
-   text-decoration: none;
-   font-family: 'Libre Baskerville';
-   color: rgb(13, 88, 193);
-   font-size: 45px;
-   padding-left: 30%;
-   padding-right: 30%;
 
- }
- .clg-name:hover{
-   text-align: center;
-   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
- }
- .clg-name-2{
-   margin-left: 300px;
-   width: 90px;
-   height: 50%;
-   text-decoration: none;
-   font-family: 'Libre Baskerville';
-   color: rgb(215, 163, 51);
-   font-size: 45px;
-   
- }
- .clg-name-2:hover{
-   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
- }
- .logo-1{
-   display: flex;
-   margin-left: 1%;
-   margin-right: 10%;
-   text-align: right;
-   width: 150px;
-   height: 107px;
- }
- .logo-1:hover{
-   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
- }
- .logo-2{
-   margin-left: 38%;
-   display: flex;
-   text-align: right;
-   width: 150px;
-   height: 107px;
-   padding-right: 100px;
- }
- .logo-2:hover{
-   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
- }
- .logo img {
-  width:fit-content;
-  height: 107px;
-}*/
 .para {
   font-size: 25px;
   font-family: 'Libre Baskerville';
