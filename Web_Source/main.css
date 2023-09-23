@@ -41,17 +41,17 @@ border-radius: 10px;
   }
 }
 .header{
-block-size: 100px;
+block-size: 120px;
 }
 .headerimg{
-max-height: 100px;
+max-height: 110px;
 }
 .headerimg:hover{
   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
 }
 .headertxt{
   height: 100%;
-  font-size: 5.2vmin;
+  font-size: 5vmin;
   display:flex;
   align-items: center;
   justify-content: center;
