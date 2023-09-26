@@ -3,8 +3,6 @@ The K-Map Solver Web Application is a college project aimed at simplifying and o
 
 ![image](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/a89fd35f-c59f-4aa6-b916-3e8615123740)
 
-Still at the developing stage......
-
 ## Features
 * Interactive Interface: The frontend interface is built using HTML, CSS, and JavaScript, allowing users to interact with Karnaugh Maps and input truth values.
 * Backend Logic: The backend of the application is implemented in C and handles the core logic of simplifying Boolean expressions based on Karnaugh Maps.
