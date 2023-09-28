@@ -11,6 +11,9 @@ border-radius: 10px;
 ::-webkit-scrollbar-thumb:hover {
   background: #aaa8a8;
 }
+body {
+  margin-top: 0px;
+}
 
 .heading {
   margin-top: 15px;
@@ -40,26 +43,30 @@ border-radius: 10px;
     transform: scale(1, 1);
   }
 }
-.header{
-block-size: 120px;
-}
+
 .headerimg{
-max-height: 110px;
+max-height: 100px;
 }
 .headerimg:hover{
   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
 }
 .headertxt{
   height: 100%;
-  font-size: 5vmin;
+  font-size: 2.8vw;
   display:flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-family: 'Libre Baskerville';
+  margin-top:10px;
 }
 .headertxt:hover{
   filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+}
+@media(max-width:786px){
+  .headertxt{
+  font-size: 5vmin;
+  }
 }
 
 .para {
@@ -82,7 +89,7 @@ max-height: 110px;
   text-decoration: none;
 }
 
-.text1 {
+.button-name {
   font-family: 'Libre Baskerville';
   color: white;
   text-align: center;
@@ -90,7 +97,7 @@ max-height: 110px;
   font-size: 25px;
 }
 
-.text1:hover {
+.button-name:hover {
   color: white;
   text-align: center;
   display: inline-block;
@@ -98,13 +105,13 @@ max-height: 110px;
   animation: zoom-in-zoom-out 1s ease;
 }
 
-.name {
+.mention {
   font-family: 'Libre Baskerville';
   font-size: 25px;
   color: rgb(0, 0, 255);
 }
 
-.name:hover {
+.mention:hover {
   font-size: 25px;
   text-align:left;
   display:inline-block;
@@ -234,24 +241,18 @@ li{
   align-items:end;
   justify-content:end;
 }
-.main{
-height: 100px;
+.K-Map_Input {
+  height: 82%;
+  width: 69%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 25px;
+  user-select: none;
+}
+.result{
+height: auto;
 width: 435px;
 border: 2px solid black;
-display: flexbox;
+display: flow-root;
 border-radius:12px; 
-}
-.text-1{
-font-size: 18px;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-display:block;
-text-align: center;
-}
-.txt {
- height: 82%;
- width: 69%;
- font-family: Verdana, Geneva, Tahoma, sans-serif;
- text-align: center;
- font-size: 25px;
- user-select: none;
 }

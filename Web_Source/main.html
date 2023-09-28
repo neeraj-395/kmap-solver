@@ -6,23 +6,31 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Libre Baskerville" rel="stylesheet" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+                loader: { load: ['input/asciimath', 'output/chtml'] }
+            }
+    </script>
+   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
 
-    <div class="header">
+    <header style="block-size: 100px;">
         <a href="https://dseu.ac.in/" target="_blank" style="text-decoration: none;">
             <img class="headerimg" style="float: left;" src="https://dseu.ac.in/wp-content/uploads/2021/05/Dseu-Logo-500X407-1.png" alt="Dseu logo">
         </a>
         <a href="https://dseu.ac.in/" target="_blank" style="text-decoration: none;">
             <img class="headerimg" style="float: right;" src="https://dseu.ac.in/wp-content/uploads/2021/05/Dseu-Logo-500X407-1.png" alt="Dseu logo">
         </a>
-        <a href="https://dseu.ac.in/rajokri/" target="_blank" style="text-decoration: none;">
-            <div class="headertxt"><b><span style="color:#0072BC">RAJOKRI&nbsp;INSTITUTE</span><span style="color:#F7941D"><br>OF&nbsp;TECHNOLOGY</span></b></div>
-        </a>
-    </div>
+        <p class="headertxt">
+            <a href="https://dseu.ac.in/rajokri/" target="_blank" style="text-decoration: none;">
+                <span style="color:#0072BC; font-weight: bolder;">RAJOKRI&nbsp;INSTITUTE</span>
+                <span style="color:#F7941D; font-weight: bolder;">&nbsp;OF&nbsp;TECHNOLOGY</span></b></text>
+            </a>
+        </p>
+    </header>
 
     <hr style="color: grey;">
     <a href="https://en.wikipedia.org/wiki/Karnaugh_map" target="_blank" style="text-decoration: none; display:inline-flex;">
@@ -52,16 +60,16 @@
     <br /><br />
 
         <button type="button" class="button" onclick="Click('K_MAP','II_Variable.html');">
-            <span class="text1">II&nbsp;&nbsp;Variables</span>
+            <span class="button-name">II&nbsp;&nbsp;Variables</span>
         </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button type="button" class="button" onclick="Click('K_MAP','III_Variable.html');">
-            <span class="text1">III&nbsp;&nbsp;Variables </span>
+            <span class="button-name">III&nbsp;&nbsp;Variables </span>
         </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
     <button type="button" class="button" onclick="Click('K_MAP','IV_Variable.html');">
-            <span class="text1">IV&nbsp;&nbsp;Variables</span>
+            <span class="button-name">IV&nbsp;&nbsp;Variables</span>
         </button><br><br><br>
     
     <div id="K_MAP" style="display: none;"></div>
@@ -91,23 +99,24 @@
         <li>You can find this website source code at :
         <a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank" style="text-decoration: none"><span
                 class="name">GitHub</span></a></li>
-        </ul></p>
-        <p class="para"><b>Note: </b>This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. It is not meant for deployment on the internet.</li>
         </ul>
     </p>
+        <p class="para"><b>Note: </b>
+            This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. It is not meant for deployment on the internet.
+        </p>
 
     <p class="para">Φ Developed by:<br />
         <a href="https://github.com/Neeraj395-N3rd" target="_blank" style="text-decoration: none">
-          <span class="name">§ Neeraj_Singh</span>
+          <span class="mention">§ Neeraj_Singh</span>
         </a><br />
         <a href="https://www.instagram.com/itz_krishu_4u/" target="_blank" style="text-decoration: none">
-          <span class="name">§ Sudhanshu_Kaul</span>
+          <span class="mention">§ Sudhanshu_Kaul</span>
         </a><br />
         <a href="https://github.com/priyanshugarg00" target="_blank" style="text-decoration: none">
-          <span class="name">§ Priyanshu_Garg</span>
+          <span class="mention">§ Priyanshu_Garg</span>
         </a><br />
         <a href="https://github.com/rahul07tiwari" target="_blank" style="text-decoration: none"> 
-          <span class="name">§ Rahul_Kumar_Tiwari</span>
+          <span class="mention">§ Rahul_Kumar_Tiwari</span>
         </a>
     </p>
     <script src="main.js"></script>
