@@ -1,64 +1,63 @@
 #include <stdio.h>
-#include <conio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <math.h>
 
 //----------------Decimal to Binary Coverter-------------------//
-void Dec_to_Bin(char *MinC, char *MinB, int *sor, int soc)
+void Dec_to_Bin(char MinC[], char **MinB, int sor, int soc)
 {
   int Bit;
   int Row = 0;
-  for (int i = 0; i < *sor; i++)
+  for (int i = 0; i < sor; i++)
   {
-    if ((*(MinC + i) == '1') || (*(MinC + i) == 'X'))
+    if ((MinC[i] == '1') || (MinC[i] == 'X'))
     {
       Bit = i;
       for (int j = (soc - 1); j >= 0; j--)
       {
-        *(MinB + (Row * soc) + j) = (char)(48 + (Bit % 2));
+        MinB[Row][j] = (char)(48 + (Bit % 2));
         Bit >>= 1;
       }
       Row++;
     }
   }
-  *sor = Row;
 }
 
 //----------------Binary to Bool Algebraic Output------------------------//
-void Boolean_Output(char *Minterms, int soc, int *row, char *result)
+void Boolean_Output(char *Minterms, int sor, int soc, char *result)
 {
+  int i = 0;
   do
   {
-    *result = '(';
-    result++;
+    strcpy(result, "`(");
+    result += 2;
     for (int j = 0; j < soc; j++)
     {
-      if (*(Minterms + ((*row) * soc) + j) == '1')
+      if (*(Minterms + (i * soc) + j) == '1')
       {
         snprintf(result, sizeof(result), "%cx", 65 + j);
         result++;
       }
-      else if (*(Minterms + ((*row) * soc) + j) == '0')
+      else if (*(Minterms + (i * soc) + j) == '0')
       {
-        snprintf(result, sizeof(result), "%c'x", 65 + j);
-        result += 2;
+        snprintf(result, sizeof(result), "bar%cx", 65 + j);
+        result += 4;
       }
       if (*result == 'x')
       {
-        strcpy(result, " ^ ");
-        result += 3;
+        strcpy(result, "cdot");
+        result += 4;
       }
     }
-    if (*(result - 2) == '^')
-      result -= 3;
-    strcpy(result, ")  ");
-    result++;
-    ++row;
-    if (*row != 0 && *result != '\0')
+    if (*(result - 1) == 't')
+      result -= 4;
+    strcpy(result, ")`  ");
+    result += 2;
+    i++;
+    if (i != sor && *result != '\0')
     {
-      strcpy(result, " V ");
+      strcpy(result, "`+`");
       result += 3;
     }
     else
@@ -66,7 +65,7 @@ void Boolean_Output(char *Minterms, int soc, int *row, char *result)
       *result = '\0';
       break;
     }
-  } while (*row != 0);
+  } while (i != sor);
 }
 
 //--------------2D-Pointer Array Display Function(Temporary)------------//
@@ -136,11 +135,11 @@ int PT_Generator(char **MinB, int sor, int soc, int *PP, char Tick[])
 }
 
 //-------------------Prime_Implicant_Collector------------------//
-int Prime_Implicant(char **MinB, char *PI, int soc, char Tick[])
+int Prime_Implicant(char **MinB, char *PI, int soc, char Tick[], int soT)
 {
   static int Line = 0;
-  int i = 0, check = 0;
-  while ((Tick[i] != '$') && (Tick[i] != '\0'))
+  int i = 0;
+  while ((Tick[i] != '$') && (i != soT))
   {
     if (Tick[i] == '0')
     {
