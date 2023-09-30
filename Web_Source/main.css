@@ -87,6 +87,7 @@ max-height: 100px;
   margin: 10px 2px;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 8px;
 }
 
 .button-name {
@@ -137,7 +138,6 @@ li{
 .mainsq {
   height: 300px;
   width: 270px;
-  
 }
 .el1 {
   height: 50px;
@@ -251,7 +251,7 @@ li{
 }
 .result{
 height: auto;
-width: 435px;
+width: 450px;
 border: 2px solid black;
 display: flow-root;
 border-radius:12px; 
