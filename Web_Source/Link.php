@@ -1,22 +1,20 @@
 <?php
 // PHP code to receive and process the JSON data from JavaScript
-$input = file_get_contents('php://input'); // Get the raw POST data
-
-$exePath = 'K-Map_Solver.exe'; // Replace with the actual path to your .exe file
-
 chdir(__DIR__ . '/PHP_Executable');
 
-$arrayData = json_decode($input, false); // Decode the JSON data into a PHP array
+$input = file_get_contents('php://input'); // Get the raw POST data
+
+//------!!IMPORTANT!!-----------//
+$exePath = 'K-Map_Solver.exe'; // if you are using this software on Linux change it to "K-Map_Solver_Linux"
+
+$arrayData = (array)json_decode($input, true); // Decode the JSON data into a PHP array
 
 $stringinput = implode($arrayData); // array to string conversion
 
+$command = realpath($exePath) . " $stringinput";
+
 if ($arrayData !== null) {
-    $pipe = popen($exePath, 'w');
-    if ($pipe) {
-        fwrite($pipe, $stringinput);
-        pclose($pipe);
-        echo "Execution Done!!";
-    } else
-        echo "Execution file opening failed!!";
+    shell_exec($command);
+    echo "Execution Done!!\n";
 } else
-    echo "No valid JSON data received.";
+    echo "Execution failed!!\n";
