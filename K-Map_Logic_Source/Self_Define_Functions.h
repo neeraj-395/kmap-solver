@@ -5,7 +5,7 @@
 #include <math.h>
 
 //----------------Decimal to Binary Coverter-------------------//
-void Dec_to_Bin(char MinC[], char **MinB, int sor, int soc)
+void Dec_to_Bin(char const *MinC, char **MinB, int sor, int soc)
 {
   int Bit;
   int Row = 0;
@@ -24,48 +24,65 @@ void Dec_to_Bin(char MinC[], char **MinB, int sor, int soc)
   }
 }
 
+//----------------No. of 1's Counter--------------------------//
+int _1sC(char const *MinC, int sor)
+{
+  int count = 0;
+  for (int i = 0; i < sor; i++)
+  {
+    if (MinC[i] == '1' || MinC[i] == 'X') // in Quine McCluskey Algroithm we assume 'X' as 1;
+      count++;
+  }
+  return count;
+}
+
 //----------------Binary to Bool Algebraic Output------------------------//
 void Boolean_Output(char *Minterms, int sor, int soc, char *result)
 {
   int i = 0;
-  do
+  if (!strncmp(Minterms, "_______________", sizeof(char) * soc))
+    strcpy(result, "1\0");
+  else
   {
-    strcpy(result, "`(");
-    result += 2;
-    for (int j = 0; j < soc; j++)
+    do
     {
-      if (*(Minterms + (i * soc) + j) == '1')
+      strcpy(result, "`(");
+      result += 2;
+      for (int j = 0; j < soc; j++)
       {
-        snprintf(result, sizeof(result), "%cx", 65 + j);
-        result++;
+        if (*(Minterms + (i * soc) + j) == '1')
+        {
+          sprintf(result, "%cx", 65 + j);
+          result++;
+        }
+        else if (*(Minterms + (i * soc) + j) == '0')
+        {
+          sprintf(result, "bar%cx", 65 + j);
+          result += 4;
+        }
+        if (*result == 'x')
+        {
+          strcpy(result, "cdot");
+          result += 4;
+        }
       }
-      else if (*(Minterms + (i * soc) + j) == '0')
+      if (*(result - 1) == 't')
+        result -= 4;
+      strcpy(result, ")`  ");
+      result += 2;
+      i++;
+      if (i != sor && *result != '\0')
       {
-        snprintf(result, sizeof(result), "bar%cx", 65 + j);
-        result += 4;
+        strcpy(result, "`+`");
+        result += 3;
       }
-      if (*result == 'x')
+      else
       {
-        strcpy(result, "cdot");
-        result += 4;
+        *result = '\0';
+        break;
       }
-    }
-    if (*(result - 1) == 't')
-      result -= 4;
-    strcpy(result, ")`  ");
-    result += 2;
-    i++;
-    if (i != sor && *result != '\0')
-    {
-      strcpy(result, "`+`");
-      result += 3;
-    }
-    else
-    {
-      *result = '\0';
-      break;
-    }
-  } while (i != sor);
+    } while (i != sor);
+  }
 }
 
 //--------------2D-Pointer Array Display Function(Temporary)------------//

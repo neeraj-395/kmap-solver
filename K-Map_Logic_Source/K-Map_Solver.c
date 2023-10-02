@@ -1,28 +1,38 @@
 #include "Self_Define_Functions.h"
-#define MAX_VAR 4  // Maximum Variables Supported!!
-#define MAX_MIN 16 // Maximum Minterms Suppoerted!!
+#define MAX_MIN 16
 
-int main(void)
+int main(int argc, char const *Min_in_Char[])
 {
-  char Min_in_Char[MAX_MIN];
-  printf("Enter the minterm as 0 or 1 without space, according to the order below:\nM0 M1 M2 M3 M4......>>");
-  scanf("%s", &Min_in_Char[0]);
+  if (argc <= 1)
+  {
+    printf("No input has been received.( use this --> ./K-Map_Solver 1001 )");
+    return 1;
+  }
 
-  int Min = strlen(Min_in_Char); // Number of Minterms
-  int Var;                       // Number of Variables
-  float i = log2f((float)Min);
+  int Min = strlen(Min_in_Char[1]); // Number of Minterms
+  int Var;                          // Number of Variables
+  float temp = log2f((float)Min);
 
-  if ((int)i == i)
-    Var = (int)i;
+  if ((int)temp == temp)
+    Var = (int)temp;
   else
   {
-    printf("Entered String is incomplete or Not correct\n");
+    printf("Entered input is incomplete or Not correct\n");
     return 1;
+  }
+
+  Min = _1sC(Min_in_Char[1], Min); // !important! Assigning the number of minterms based on the number of 1s.
+  if (!Min)
+  {
+    FILE *file = fopen("Output.txt", "w");
+    fprintf(file, "%c", '0');
+    fclose(file);
+    return 0;
   }
 
   int LPP = (Var * pow(2, Var - 1)); // Largest Possible Pair (When all Minterms is set to '1' or The Worst case of this program)
 
-  int *PP = (int *)malloc((LPP * 2) * sizeof(int)); // Allocated Memory for Possible-Pairs
+  int *PP = (int *)malloc((LPP * 2) * sizeof(int)); // Allocating Memory for Possible-Pairs
 
   int PI_CLine, PP_ELine; // Prime Implicant Current Line, Possible Pair End Line
 
@@ -31,17 +41,13 @@ int main(void)
   char Tick[LPP + 1]; // Ticked and UnTicked Minterms Track stored here
   Tick[LPP] = '\0';
 
-  char PI[Min][Var]; // Prime Implicants Container!!
+  char PI[MAX_MIN][Var]; // Prime Implicants Container!!
 
   memset(Tick, '$', sizeof(char) * LPP); // Setting Whole Array with Doller Character
 
-  for (i = 0, Min = 0; (int)i < (MAX_MIN); i++)
-    if (Min_in_Char[(int)i] == '1' || Min_in_Char[(int)i] == 'X')
-      Min++; // N0. of 1's in Min_in_Char
-
   char **Min_in_Bin = _2DPointer(Min, Var); // Binary Minterms Clone for Further Operations Execution
 
-  Dec_to_Bin(Min_in_Char, Min_in_Bin, MAX_MIN, Var); // Converting Input Data to its Corresponding Binary Form
+  Dec_to_Bin(Min_in_Char[1], Min_in_Bin, MAX_MIN, Var); // Converting Input Data to its Corresponding Binary Form
 
   int C0Min = Min; // Clone-0 Minterm-Count
   int C1Min = Min; // Clone-1 Minterm-Count
@@ -120,8 +126,10 @@ int main(void)
 
   return 0;
 }
-/*"This program is currently incomplete and can only print the prime implicant,
-which does not represent the final or accurate result of Boolean simplification.
-The generation of essential prime implicants for the final result is a feature that will be updated in the near future.
-Therefore, I recommend using the previous version of this program,
-which can be downloaded from the development history file containing the download link."*/
+/*
+->This program generates output in MathJax syntax and writes it to an output file.
+->This program is currently incomplete and can only print the prime implicant,
+  which does not represent the final or accurate result of Boolean simplification.
+  The generation of essential prime implicants for the final result is a feature that will be updated in the near future.
+  Therefore, I recommend using the previous version of this program,
+  which can be downloaded from the development history file containing the download link.*/
