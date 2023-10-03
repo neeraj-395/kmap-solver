@@ -20,13 +20,14 @@ These instructions will help you set up and run the K-Map Solver Web Application
 ### Prerequisites
 
 - PHP installed on your system.
+- Visual studio redistributable C++ 2019 or newer version
 
 ### Installation and Usage
 
 1. Clone this repository to your local machine, or you can also go with the zip code:
 
    ```bash
-   git clone https://github.com/yourusername/k-map-solver-webapp.git
+   https://github.com/Neeraj395-N3rd/K-Map_Solver.git
 
 2. Navigate to the project Web_Source directory:
 
@@ -58,7 +59,7 @@ This project is licensed under the MIT License - see the [License](LICENSE) file
 
 ## Organization:
 
-![Algo_Tech](https://avatars.githubusercontent.com/t/8630717?s=400&v=4)
+![logo](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/07fe5d08-8d23-4a6f-b225-40375c78d0f5)
 
 ## Note
 This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. It is not meant for deployment on the internet.
