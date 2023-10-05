@@ -1,7 +1,4 @@
-.vscode/settings.json
-.vscode/c_cpp_properties.json
-.vscode/launch.json
-.vscode\tasks.json
+.vscode/
 K-Map_Logic_Source/Implement.h
 K-Map_Logic_Source/Implement.c
 K-Map_Logic_Source/Implement.exe

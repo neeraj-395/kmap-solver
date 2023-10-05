@@ -34,17 +34,27 @@ function call(id) {
     }
 }
 
-// ---------------PHP Linking Function-----------------//
+// ---------------PHP Linking Functions-----------------//
+
 {
 function Inputs(){
-var textBlocks = document.querySelectorAll('.K-Map_Input');
 
-var valuesArray = [];
+const divElement = document.querySelectorAll('#Minterm');
+var valueofdiv = [];
+var Inputvalues = [];
 
-textBlocks.forEach(function(text) {
-  valuesArray.push(text.textContent);
+divElement.forEach(divElement => {
+  valueofdiv.push(divElement.textContent.trim().replace(/ /g,'').split('\n'));
 });
-Output(valuesArray);
+
+valueofdiv.forEach(row =>{
+  row.forEach(col =>{
+    col = parseInt(row[1]);
+    Inputvalues[col]=row[0];
+  });
+});
+
+Output(Inputvalues);
 }
 
 function Output(Input){
