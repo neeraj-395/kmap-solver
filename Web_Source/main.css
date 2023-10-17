@@ -1,12 +1,12 @@
 ::-webkit-scrollbar{
-  width: 10px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track{
-border-radius: 10px;
+border-radius: 18px;
 }
 ::-webkit-scrollbar-thumb{
   background-color: rgb(216, 212, 212);
-  border-radius: 10px;
+  border-radius: 18px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #aaa8a8;
@@ -251,7 +251,7 @@ li{
 }
 .result{
 height: auto;
-width: 450px;
+width: 460px;
 border: 2px solid black;
 display: flow-root;
 border-radius:12px; 

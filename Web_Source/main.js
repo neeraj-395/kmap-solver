@@ -20,17 +20,17 @@ function Click(container_id,ex_filename){
     }
 }
 
-//------------Toggle Input Function---------------------//
+//------------Ternary-Toggle Input Function(0-->1-->X)---------------------//
 function call(id) {
     var Min = document.getElementById(id).innerHTML;
     if(Min ==='0'){
-      document.getElementById(id).innerHTML='1';
+      document.getElementById(id).innerHTML = '1';
     }
     else if(Min === '1'){
-      document.getElementById(id).innerHTML='X';
+      document.getElementById(id).innerHTML = 'X';
     }
     else{
-      document.getElementById(id).innerHTML='0';
+      document.getElementById(id).innerHTML = '0';
     }
 }
 
@@ -53,7 +53,7 @@ valueofdiv.forEach(row =>{
     Inputvalues[col]=row[0];
   });
 });
-
+Minterms(Inputvalues);
 Output(Inputvalues);
 }
 
@@ -105,5 +105,32 @@ function OutputTransfer(){
             outputDiv.textContent = 'Oops thier is a Problem!!';
         });
 }
+}
+
+//------------------LOGIC-FUNCTION-NOTATION----------------------//
+
+function Minterms(Min){
+  var i=0,j=0,k=0;
+  var min = [], dontC = [], MinString;;
+  Min.forEach(valueofMin=>{
+    if(valueofMin === '1'){
+      min[j] = i.toString();
+      j++;
+    }
+    else if(valueofMin==='X'){
+      dontC[k] = i.toString();
+      k++;
+    }
+    i++;
+  });
+  
+  if(j === 0 && k === 0) MinString = "`m\sum(phi)`";
+  else if(j && k === 0) MinString = "`m\sum(" + min.join(',') + ")`"
+  else if(j && k) MinString = "`m\sum(" + min.join(',') + ")` `+` `d(" + dontC.join(',') + ")`";
+  else MinString = MinString = "`m\sum(phi)+d(" + dontC.join(',') + ")`";
+  
+
+  document.getElementById('Min').textContent = MinString;
+  MathJax.typeset();
 }
 //----------------End of Functions-----------------------//

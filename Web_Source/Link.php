@@ -5,7 +5,7 @@ chdir(__DIR__ . '/PHP_Executable');
 $input = file_get_contents('php://input'); // Get the raw POST data
 
 //------!!IMPORTANT!!-----------//
-$exePath = 'K-Map_Solver.exe'; // if you are using this software on Linux change it to "K-Map_Solver_Linux"
+$exePath = 'K-Map_Solver.exe'; // if you are using this software on Linux change it to "K-Map_Linux"
 
 $arrayData = (array)json_decode($input, true); // Decode the JSON data into a PHP array
 
