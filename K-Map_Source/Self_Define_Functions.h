@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <math.h>
 
 //----------------Decimal to Binary Coverter-------------------//
 void Dec_to_Bin(char const *MinC, char **MinB, int sor, int soc)
 {
   int Bit;
-  int Row = 0;
-  for (int i = 0; i < sor; i++)
+  for (int i = 0, Row = 0; i < sor; i++)
   {
     if ((MinC[i] == '1') || (MinC[i] == 'X'))
     {
@@ -37,56 +35,57 @@ int _1sC(char const *MinC, int sor)
 }
 
 //----------------Binary to Bool Algebraic Output------------------------//
-void Boolean_Output(char *Minterms, int sor, int soc, char *result)
+void Boolean_Output(char *Minterms, int sor, int soc, FILE *output)
 {
-  int i = 0;
-  if (!strncmp(Minterms, "_______________", sizeof(char) * soc))
-    strcpy(result, "1\0");
-  else
+  char result[(8 * soc) + 1]; // +1 for null character '\0'
+  int index = 0, i = 0;
+  while (i != sor)
   {
-    do
+    strcpy(&result[index], "`(");
+    index += 2;
+    for (int j = 0; j < soc; j++)
     {
-      strcpy(result, "`(");
-      result += 2;
-      for (int j = 0; j < soc; j++)
+      if (*(Minterms + (i * soc) + j) == '1') // *(Minterms + (i * soc) + j) is same as Minterms[i*soc][j]
       {
-        if (*(Minterms + (i * soc) + j) == '1')
-        {
-          sprintf(result, "%cx", 65 + j);
-          result++;
-        }
-        else if (*(Minterms + (i * soc) + j) == '0')
-        {
-          sprintf(result, "bar%cx", 65 + j);
-          result += 4;
-        }
-        if (*result == 'x')
-        {
-          strcpy(result, "cdot");
-          result += 4;
-        }
+        sprintf(&result[index], "%cx", 65 + j);
+        index++;
       }
-      if (*(result - 1) == 't')
-        result -= 4;
-      strcpy(result, ")`  ");
-      result += 2;
-      i++;
-      if (i != sor && *result != '\0')
+      else if (*(Minterms + (i * soc) + j) == '0')
       {
-        strcpy(result, "`+`");
-        result += 3;
+        sprintf(&result[index], "bar%cx", 65 + j);
+        index += 4;
       }
-      else
+      if (result[index] == 'x')
       {
-        *result = '\0';
-        break;
+        strcpy(&result[index], "cdot");
+        index += 4;
       }
-    } while (i != sor);
+    }
+
+    if (result[index - 1] == 't')
+      index -= 4;
+
+    strcpy(&result[index], ")`");
+    index += 2;
+
+    result[index] = '\0';
+    fprintf(output, "%s", result);
+
+    i++;
+
+    if (i == sor)
+      break;
+
+    fprintf(output, "%s", "`+`");
+
+    memset(result, 0, index);
+
+    index = 0;
   }
 }
 
 //--------------2D-Pointer Array Display Function(Temporary)------------//
-void _2D_Ptr_Display(char **Arr, int sor, int soc, char ArrName[10])
+void _2D_Ptr_Display(char **Arr, int sor, int soc, char ArrName[])
 {
   for (int i = 0; i < sor; i++)
   {
@@ -121,7 +120,7 @@ int DC(char **MinB, int soc, int M, int N, int *diff_posi)
     if (MinB[M][i] != MinB[N][i])
     {
       diff_count++;
-      *diff_posi = i;
+      *diff_posi = (int)i;
     }
   }
   return diff_count;
