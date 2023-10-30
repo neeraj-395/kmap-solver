@@ -121,12 +121,12 @@ function Minterms(Min) {
 		i++;
 	});
 
-	if (j === 0 && k === 0) MinString = "`msum(phi)`";
-	else if (j && k === 0) MinString = "`msum(" + min.join(",") + ")`";
+	if (j === 0 && k === 0) MinString = "`summ(phi)`";
+	else if (j && k === 0) MinString = "`summ(" + min.join(",") + ")`";
 	else if (j && k)
 		MinString =
-			"`msum(" + min.join(",") + ")` `+` `d(" + dontC.join(",") + ")`";
-	else MinString = MinString = "`msum(phi)+d(" + dontC.join(",") + ")`";
+			"`summ(" + min.join(",") + ")` `+` `d(" + dontC.join(",") + ")`";
+	else MinString = MinString = "`summ(phi)+d(" + dontC.join(",") + ")`";
 
 	document.getElementById("Min").textContent = MinString;
 	MathJax.typeset();
