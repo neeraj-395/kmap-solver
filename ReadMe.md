@@ -42,9 +42,7 @@ These instructions will help you set up and run the K-Map Solver Web Application
 4. Open your browser and visit:
 
    ```bash
-   http://localhost:1000/main.html
-
-5. After use you can close the server by CTRL+C on Command Prompt or Terminal.
+   http://localhost:1000/index.html
 
 ## Contributing
 if you want to contribute to this project, please follow these steps:
