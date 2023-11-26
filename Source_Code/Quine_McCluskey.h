@@ -44,19 +44,6 @@ int CC(char const *MinC, int sor, char ch0, char ch1)
   return count;
 }
 
-//--------------2D-Pointer Array Display Function(Temporary)------------//
-void _2D_Ptr_Display(char **Arr, int sor, int soc, char ArrName[])
-{
-  for (int i = 0; i < sor; i++)
-  {
-    for (int j = 0; j < soc; j++)
-    {
-      printf("%s[%d][%d] = %c, ", ArrName, i, j, Arr[i][j]);
-    }
-    printf("\n");
-  }
-}
-
 //-------------------Duplication_Eliminator----------------//
 bool DE(char **MinB, int soc, int M, int diff_posi)
 {
@@ -130,7 +117,8 @@ int Prime_Implicant(char **MinB, char *PI, int soc, char Tick[], int soT)
 //---Initializing Dynamic_2D-Array----//
 char **_2DPointer(int Rows, int Col)
 {
-
+  if (Rows < 1 || Col < 1)
+    return NULL;
   char **Array;
   Array = (char **)malloc(Rows * sizeof(char *));
 
@@ -144,9 +132,11 @@ char **_2DPointer(int Rows, int Col)
 void _2DFreeArray(char **Array, int Rows)
 {
   for (int i = 0; i < Rows; i++)
-    free(Array[i]);
+    if (Array[i] != NULL)
+      free(Array[i]);
 
-  free(Array);
+  if (Array != NULL)
+    free(Array);
 }
 //________________END__________________//
 

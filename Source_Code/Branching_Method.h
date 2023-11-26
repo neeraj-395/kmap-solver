@@ -7,14 +7,10 @@
 
 bool covercheck(char *pi, int var, int min);
 int optrack(char *track, int size, int *posi);
-char **_2DPointer(int Rows, int Col);
-void _2DFreeArray(char **Array, int Rows);
-void extractEPI(char **table, int nom, int nopi, char *mintrack, char *epitrack);
-void minElim(char **table, int nom, int nopi, char *mintrack, char *epitrack);
 void piElim(char **table, int nom, int nopi, char *mintrack, char *epitrack);
-void showtable(char **table, int nom, int nopi, char *mintrack, char *epitrack);
+void minElim(char **table, int nom, int nopi, char *mintrack, char *epitrack);
 void cyclicfix(char **table, int nom, int nopi, char *mintrack, char *epitrack);
-
+void extractEPI(char **table, int nom, int nopi, char *mintrack, char *epitrack);
 
 void minElim(char **table, int nom, int nopi, char *mintrack, char *epitrack)
 {
@@ -126,29 +122,6 @@ bool covercheck(char *PI, int var, int min)
         }
     }
     return true;
-}
-
-void showtable(char **table, int nom, int nopi, char *mintrack, char *epitrack)
-{
-    for (int i = 0; i < nom; i++)
-    {
-        if (mintrack[i] != '#' || mintrack == NULL)
-        {
-            for (int j = 0; j < nopi; j++)
-                if ((epitrack[j] != '.' && epitrack[j] != '#') || epitrack == NULL)
-                    printf("%3c", table[i][j]);
-            printf("\n");
-        }
-    }
-    printf("----------------epitrack------------------\n");
-    for (int i = 0; i < nopi; i++)
-        printf("%3c", epitrack[i]);
-    printf("\n");
-
-    printf("----------------mintrack------------------\n");
-    for (int i = 0; i < nom; i++)
-        printf("%3c", mintrack[i]);
-    printf("\n");
 }
 
 void cyclicfix(char **table, int nom, int nopi, char *mintrack, char *epitrack)
