@@ -2,7 +2,7 @@
 
 Welcome to the Karnaugh Map (K-Map) Solver Web Application repository! This web application allows you to simplify Boolean expressions using K-Maps for up to 4 variables. It has both a backend written in C language and a frontend built with HTML, CSS, and JavaScript.
 
-![image](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/15ce3e0c-9289-4774-ab6b-dadde282c2dc)
+![image](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/10ddef5a-5344-484e-8dda-05f925798847)
 
 ***Thier is still some features that will be added soon.***
 
@@ -29,10 +29,10 @@ These instructions will help you set up and run the K-Map Solver Web Application
    ```bash
    https://github.com/Neeraj395-N3rd/K-Map_Solver.git
 
-2. Navigate to the project Web_Source directory:
+2. Navigate to the project directory:
 
    ```bash
-   cd K-Map_Solver\Web_Source
+   cd K-Map_Solver
 
 3. Start a PHP server in the Web_Source directory:
 
