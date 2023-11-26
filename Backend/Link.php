@@ -1,6 +1,6 @@
 <?php
 // PHP code to receive and process the JSON data from JavaScript
-chdir(__DIR__ . '/PHP_Executable');
+chdir(__DIR__ . '/php_executable');
 
 $input = file_get_contents('php://input'); // Get the raw POST data
 

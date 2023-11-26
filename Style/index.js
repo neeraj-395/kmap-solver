@@ -59,7 +59,7 @@ function call(id) {
 
 	function Output(Input) {
 		var jsonArray = JSON.stringify(Input);
-		fetch("Link.php", {
+		fetch("Backend/Link.php", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -69,7 +69,7 @@ function call(id) {
 			.then((response) => {
 				if (response.ok) {
 					console.log("Input Data Transferred!!");
-					OutputTransfer();
+					GroupMaker();
 				} else {
 					console.log("Input Data Tranfer Failed");
 				}
@@ -79,25 +79,10 @@ function call(id) {
 			});
 	}
 
-	function OutputTransfer() {
+	function OutputTransfer(Mathjax_Output) {
 		const outputDiv = document.getElementById("output");
-
-		fetch('PHP_Executable/MathJax.txt')
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error("Network response was not ok");
-				}
-				return response.text();
-			})
-			.then((fileContent) => {
-				outputDiv.textContent = fileContent;
-				MathJax.typeset();
-				GroupMaker();
-			})
-			.catch((error) => {
-				console.error("Error:", error);
-				outputDiv.textContent = "Oops thier is a Problem!!";
-			});
+		outputDiv.textContent = Mathjax_Output;
+		MathJax.typeset();
 	}
 }
 
@@ -135,10 +120,11 @@ function Minterms(Min) {
 //---------------Fetching Prime-Implecants------------------//
 
 function GroupMaker() {
-	fetch('PHP_Executable/Implicants.txt')
+	fetch('Backend/php_executable/EPI.txt')
 		.then(response => response.text())
 		.then(data => {
 			const dataArray = data.split(/\r?\n/).filter(line => line.trim() !== '');
+			booleanOutput(dataArray)
 			Implicants_Input(dataArray);
 		})
 		.catch(error => {
@@ -146,54 +132,114 @@ function GroupMaker() {
 		});
 }
 
+//---------------------------------------------------------//
+
+
+
+//--------------EPI's to MathJAX Converter----------------//
+function booleanOutput(minterms) {
+	let Mathjax_Output = [];
+	let sor = minterms.length;
+	let soc = minterms[0].length;
+	let index = 0;
+	if (soc == 1) {
+		Mathjax_Output = '0';
+		OutputTransfer(Mathjax_Output);
+		return;
+	}
+	for (let i = 0; i < soc; i++) {
+		if (minterms[0][i] != '_') break;
+		if (i === (soc - 1)) {
+			Mathjax_Output = '1';
+			OutputTransfer(Mathjax_Output);
+			return;
+		}
+	}
+	for (let i = 0, count = 0; i < sor; i++) {
+		Mathjax_Output += '`(';
+		index += 2;
+		for (let j = 0; j < soc; j++) {
+			if (minterms[i][j] === '1') {
+				Mathjax_Output += String.fromCharCode(65 + j) + 'x';
+				index++;
+			} else if (minterms[i][j] === '0') {
+				Mathjax_Output += 'bar' + String.fromCharCode(65 + j) + 'x';
+				index += 4;
+			}
+			if (Mathjax_Output[index] === 'x') {
+				Mathjax_Output = Mathjax_Output.slice(0, index);
+				Mathjax_Output += 'cdot';
+				index += 4;
+			}
+		}
+
+		if (Mathjax_Output[index - 1] === 't') {
+			index -= 4;
+			Mathjax_Output = Mathjax_Output.slice(0, index);
+		}
+
+		Mathjax_Output += ')`';
+		index += 2;
+
+		if (i === (sor - 1))
+			break;
+
+		Mathjax_Output += '`+`';
+		index += 3;
+	}
+	OutputTransfer(Mathjax_Output);
+}
+//--------------------------------------------------------//
+
+
 //---------------Minterms_Group_Generator-----------------//
 
-var Groups;
-var index;
+var Groups, index;
+var _weight, _1sweight;
 
 function Implicants_Input(EPIs) {
 	Groups = [];
 	index = 0;
 	for (let i = 0; i < EPIs.length; i++) {
-		let PI = [];
-		PI = EPIs[i].match(/./g);
+		let PI = EPIs[i].match(/./g);
 		Groups.push([]);
-		WeightG(PI);
+		GroupG(PI);
 		index++;
 	}
-	console.log(Groups); // you can use this Group array to check the the group should to ringed!!
+	console.log(Groups); // you can use this Groups array for ring logic!!
 }
+
+function GroupG(Epi) {
+	_weight = [];
+	_1sweight = 0;
+	const _n = WeightG(Epi);
+	for (let i = 0, j, k; i < _n; i++) {
+		k = i;
+		j = 0;
+		let temp = 0;
+		while (k > 0) {
+			if (k % 2) temp += _weight[j];
+			j++;
+			k >>= 1;
+		}
+		temp += _1sweight;
+		Groups[index].push(temp);
+	}
+}
+
 function WeightG(Epi) {
-	const UB = Epi.length;
-	let _weight = [];
-	let _1sweight = 0;
-	for (var i = 0, _N = 0; i < UB; i++) {
-		if (Epi[i] === "_") {
-			_weight[_N] = Math.pow(2, UB - 1 - i);
-			_N++;
-		} else if (Epi[i] === "1") {
-			_1sweight += Math.pow(2, UB - 1 - i);
+	const soc = Epi.length;
+	let n = 0;
+	for (let i = 0; i < soc; i++) {
+		switch (Epi[soc - i - 1]) {
+			case '_': _weight[n] = 2 ** i;
+				n++;
+				break;
+			case '1': _1sweight += 2 ** i;
+				break;
 		}
 	}
-	Bi_Pattern(_N, _weight, _1sweight);
-}
-function GroupG(bi_pattern, _weight, _1sweight) {
-	let temp = 0;
-	for (let i = 0; i < bi_pattern.length; i++) {
-		if (bi_pattern[i] === "1") {
-			temp += _weight[i];
-		}
-	}
-	temp += _1sweight;
-	Groups[index].push(temp);
-}
-function Bi_Pattern(n, _weight, _1sweight, pattern = "") {
-	if (n === 0) {
-		GroupG(pattern, _weight, _1sweight);
-	} else {
-		Bi_Pattern(n - 1, _weight, _1sweight, pattern + "0");
-		Bi_Pattern(n - 1, _weight, _1sweight, pattern + "1");
-	}
+	return 2 ** n;
 }
 
 //-------------------------------------------------------//

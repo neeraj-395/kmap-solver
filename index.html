@@ -4,9 +4,9 @@
     <title>K-Map Solver</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.75" />
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="Style/index.css" />
     <link href="https://fonts.googleapis.com/css?family=Libre Baskerville" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="./Favicon.ico" sizes="152x152">
+    <link rel="icon" type="image/png" href="Style/Favicon.ico" sizes="152x152">
     <script>
         MathJax = {
                 loader: { load: ['input/asciimath', 'output/chtml'] }
@@ -53,24 +53,23 @@
     </p>
 
     <p style="font-size: 22px; font-family: 'Libre Baskerville'">
-        <span class="para">Boolean Expression:</span>\[\Rightarrow (\bar{A} \wedge \bar{B} 
-        \wedge \bar{C}) \vee (\bar{B} \wedge C) \vee (\bar{A} \wedge \bar{C}) \vee (\bar{A} \wedge \bar{B})\] 
+        <span class="para">Boolean Expression:</span>\[\Rightarrow (A \wedge B \wedge C) \vee (A \wedge C)\] 
         \[\because(\wedge\rightarrow AND, \vee\rightarrow OR)\]<br />
-        <span class="para">Simplified Boolean Expression:</span>\[\Rightarrow (C \wedge \bar{B}) \vee (\bar{C} \wedge \bar{A})\]<br />
+        <span class="para">Simplified Boolean Expression:</span>\[\Rightarrow (A \wedge C)\]<br />
         <span class="para">Logic Function Notation:</span>\[f(A,B,....)=\sum m(0,1,2,3,.....)\]
     </p>
     <br /><br />
 
-        <button type="button" class="button" onclick="Click('K_MAP','II_Variable.html');">
+        <button type="button" class="button" onclick="Click('K_MAP','Variables/II_Variable.html');">
             <span class="button-name">II&nbsp;&nbsp;Variables</span>
         </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="button" onclick="Click('K_MAP','III_Variable.html');">
+    <button type="button" class="button" onclick="Click('K_MAP','Variables/III_Variable.html');">
             <span class="button-name">III&nbsp;&nbsp;Variables </span>
         </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
-    <button type="button" class="button" onclick="Click('K_MAP','IV_Variable.html');">
+    <button type="button" class="button" onclick="Click('K_MAP','Variables/IV_Variable.html');">
             <span class="button-name">IV&nbsp;&nbsp;Variables</span>
         </button><br><br><br>
     
@@ -121,6 +120,6 @@
           <span class="mention">§ Rahul_Kumar_Tiwari</span>
         </a>
     </p>
-    <script src="main.js"></script>
+    <script src="Style/index.js"></script>
 </body>
 </html>

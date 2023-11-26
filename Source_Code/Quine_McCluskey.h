@@ -1,10 +1,22 @@
+#ifndef QUINE_MCCLUSKEY_H
+#define QUINE_MCCLUSKEY_H
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
+
+char **_2DPointer(int Rows, int Col);
+void _2DFreeArray(char **Array, int Rows);
+void Dec_to_Bin(char const *MinC, int sor, int soc, char **MinB);
+int CC(char const *MinC, int sor, char ch0, char ch1);
+bool DE(char **MinB, int soc, int M, int diff_posi);
+int DC(char **MinB, int soc, int M, int N, int *diff_posi);
+int PT_Generator(char **MinB, int sor, int soc, int *PP, char Tick[]);
+int Prime_Implicant(char **MinB, char *PI, int soc, char Tick[], int soT);
 
 //----------------Decimal to Binary Coverter-------------------//
-void Dec_to_Bin(char const *MinC, char **MinB, int sor, int soc)
+void Dec_to_Bin(char const *MinC, int sor, int soc, char **MinB)
 {
   int Bit;
   for (int i = 0, Row = 0; i < sor; i++)
@@ -22,66 +34,14 @@ void Dec_to_Bin(char const *MinC, char **MinB, int sor, int soc)
   }
 }
 
-//----------------No. of 1's Counter--------------------------//
-int _1sC(char const *MinC, int sor)
+//----------------Character-Counter--------------------------//
+int CC(char const *MinC, int sor, char ch0, char ch1)
 {
   int count = 0;
   for (int i = 0; i < sor; i++)
-  {
-    if (MinC[i] == '1' || MinC[i] == 'X') // in Quine McCluskey Algroithm we assume 'X' as 1;
+    if (MinC[i] == ch0 || MinC[i] == ch1)
       count++;
-  }
   return count;
-}
-
-//----------------Binary to Bool Algebraic Output------------------------//
-void Boolean_Output(char *Minterms, int sor, int soc, FILE *output)
-{
-  char result[(8 * soc) + 1]; // +1 for null character '\0'
-  int index = 0, i = 0;
-  while (i != sor)
-  {
-    strcpy(&result[index], "`(");
-    index += 2;
-    for (int j = 0; j < soc; j++)
-    {
-      if (*(Minterms + (i * soc) + j) == '1') // *(Minterms + (i * soc) + j) is same as Minterms[i*soc][j]
-      {
-        sprintf(&result[index], "%cx", 65 + j);
-        index++;
-      }
-      else if (*(Minterms + (i * soc) + j) == '0')
-      {
-        sprintf(&result[index], "bar%cx", 65 + j);
-        index += 4;
-      }
-      if (result[index] == 'x')
-      {
-        strcpy(&result[index], "cdot");
-        index += 4;
-      }
-    }
-
-    if (result[index - 1] == 't')
-      index -= 4;
-
-    strcpy(&result[index], ")`");
-    index += 2;
-
-    result[index] = '\0';
-    fprintf(output, "%s", result);
-
-    i++;
-
-    if (i == sor)
-      break;
-
-    fprintf(output, "%s", "`+`");
-
-    memset(result, 0, index);
-
-    index = 0;
-  }
 }
 
 //--------------2D-Pointer Array Display Function(Temporary)------------//
@@ -98,17 +58,17 @@ void _2D_Ptr_Display(char **Arr, int sor, int soc, char ArrName[])
 }
 
 //-------------------Duplication_Eliminator----------------//
-int DE(char **MinB, int soc, int M, int diff_posi)
+bool DE(char **MinB, int soc, int M, int diff_posi)
 {
   for (int i = 0; i < soc; i++)
   {
     if (MinB[M][i] == '_')
     {
       if (diff_posi > i)
-        return 0;
+        return false;
     }
   }
-  return 1;
+  return true;
 }
 
 //-----------------------Diffs_Counter-------------------------//
@@ -189,3 +149,5 @@ void _2DFreeArray(char **Array, int Rows)
   free(Array);
 }
 //________________END__________________//
+
+#endif
