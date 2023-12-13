@@ -19,33 +19,33 @@ int main(int argc, char const *MinChar[])
     Min = CC(MinChar[1], inSize, '1', 'X');  // Counting number of minterms including 'X'
     _1sC = CC(MinChar[1], inSize, '1', '$'); // Counting number of one's
 
-    if (!Min || !_1sC)
+    if (!Min || !_1sC)                       // If no. of minterms or number of 1's is equal to 0
     {
         FILE *EPI_file = fopen("EPI.txt", "w");
-        fprintf(EPI_file, "%c", '0');
+        fprintf(EPI_file, "%c", '0');        // then return output '0' program end
         fclose(EPI_file);
         return 0;
     }
-    else if ((int)temp == temp && (int)temp <= MAX_VAR)
-        Var = (int)temp;
+    else if ((int)temp == temp && (int)temp <= MAX_VAR) // If floating value of log2f(inSize) = integer value of itself
+        Var = (int)temp; // then assign log2f(inSize) to number of one's
     else
     {
         printf("Number of input characters (0,1,X) should be 2^n where n is (2 >= n =< 5).");
-        return 1;
+        return 1; // this program supports upto 5 variables if more than that return 1 program breaks!!
     }
 
     //   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     //   X * Prime Implicants Identification Implimentation Using Quine McCluskey Algorithm.  X
     //   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-    char PI[inSize][Var];                             // Prime Implicants Container!!
+    char PI[inSize][Var];                             // Prime Implicants Storage!!
     int Lpp = (Var * pow(2, Var - 1));                // The largest possible pair (When all Minterms is set to '1' or The Worst case of this program)
     int PIndex, sizeOpp;                              // Prime Implicant Index, Size of possible pair
     int *Pp = (int *)malloc((Lpp * 2) * sizeof(int)); // Allocating Memory for Possible-Pairs
     char *tick = (char *)malloc(Lpp * sizeof(char));  // Ticked and UnTicked Minterms Track stored here
-    char **Min_in_Bin = _2DPointer(Min, Var);         // Binary Minterms Storage
+    char **Min_in_Bin = _2DPointer(Min, Var);         // Minterms in Binary form stored here
 
-    memset(tick, '$', sizeof(char) * Lpp); // Setting Whole Array with Doller Character
+    memset(tick, '$', sizeof(char) * Lpp); // Setting Whole tick array with '$' Character
 
     Dec_to_Bin(MinChar[1], inSize, Var, Min_in_Bin); // Converting Input Data to its Corresponding Binary Form
 
@@ -58,7 +58,7 @@ int main(int argc, char const *MinChar[])
 
         sizeOpp = PT_Generator(Min_in_Bin, C1Min, Var, Pp, tick); // Generating Possible Pairs And Ticking PI!!
 
-        PIndex = Prime_Implicant(Min_in_Bin, &PI[0][0], Var, tick, Lpp); // Storing Generated PI in the PI-Container!!
+        PIndex = Prime_Implicant(Min_in_Bin, &PI[0][0], Var, tick, Lpp); // Storing Generated PI in the PI Array!!
 
         if (sizeOpp == 0)
             break; // Exit the loop when thier is no Possible Pairs is Available!!
@@ -114,13 +114,12 @@ int main(int argc, char const *MinChar[])
 
     int nom = _1sC;                         // Number of minterms execluding 'X'
     int nopi = PIndex;                      // Number of Prime Implicants for dominance method
-    int MinD[nom];                          // Minterms in decimal
+    int MinD[nom];                          // Minterms in decimals
     char **pitable = _2DPointer(nom, nopi); // Prime implicant table for boolean function simplification
-    // char EPI[inSize][Var + 1];              // Essential Prime Implicants Stored here
 
     for (int i = 0, w = 0; i < inSize; i++)
         if (MinChar[1][i] == '1')
-            MinD[w++] = i;
+            MinD[w++] = i;                  // Generating Minterms in decimal form
 
     for (int i = 0; i < nom; i++)
     {
@@ -128,17 +127,18 @@ int main(int argc, char const *MinChar[])
         {
             if (covercheck(&PI[j][0], Var, MinD[i]))
                 pitable[i][j] = '1';
-            else // Creating Prime implicant chart!!
+            else
                 pitable[i][j] = '0';
         }
     }
+    //---------------End of Creation----------------//
 
     char mintrack[nom];  // it will track those minterm which are eliminated by using the symbol '#'
     char epitrack[nopi]; // it will track those prime implicants which are non-essential by symbol '#' and '.' for essential.
     int epinx = 0;       // number of essential prime implicants
 
-    memset(mintrack, '$', sizeof(char) * nom);
-    memset(epitrack, '$', sizeof(char) * nopi);
+    memset(mintrack, '$', sizeof(char) * nom);  // Setting whole mintrack array with '$' sign
+    memset(epitrack, '$', sizeof(char) * nopi); // Setting whole epitrack array with '$' sign
 
     while (optrack(mintrack, nom, NULL))
     {
@@ -159,9 +159,10 @@ int main(int argc, char const *MinChar[])
         }
     }
 
-    fclose(EPI_file);
 
-    _2DFreeArray(pitable, nom);
+    fclose(EPI_file);// freeing pointer
+
+    _2DFreeArray(pitable, nom); // freeing memory space 
 
     return 0;
 }

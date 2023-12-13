@@ -13,6 +13,7 @@ border-radius: 18px;
 }
 body {
   margin-top: 0px;
+  scroll-behavior: smooth;
 }
 
 .heading {
@@ -75,6 +76,7 @@ max-height: 100px;
 }
 
 .button {
+  outline: none;
   background-color: hsl(120, 2%, 11%);
   width: 215px;
   height: 62px;

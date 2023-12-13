@@ -1,6 +1,6 @@
 //------------K-Map Fetch Function----------------------//
 
-function Click(container_id, ex_filename) {
+function Draw(container_id, ex_filename) {
 	var container = document.getElementById(container_id);
 	if (container.style.display == "none") {
 		fetch(ex_filename)
@@ -16,13 +16,13 @@ function Click(container_id, ex_filename) {
 		container.style.display = "block";
 	} else {
 		container.style.display = "none";
-		return Click(container_id, ex_filename);
+		return Draw(container_id, ex_filename);
 	}
 }
 
 //------------Ternary-Toggle Input Function(0-->1-->X)---------------------//
 
-function call(id) {
+function toggle(id) {
 	var Min = document.getElementById(id).innerHTML;
 	if (Min === "0") {
 		document.getElementById(id).innerHTML = "1";
@@ -53,13 +53,12 @@ function call(id) {
 				Inputvalues[col] = row[0];
 			});
 		});
-		Minterms(Inputvalues);
 		Output(Inputvalues);
 	}
 
 	function Output(Input) {
 		var jsonArray = JSON.stringify(Input);
-		fetch("Backend/Link.php", {
+		fetch("backend/link.php", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -69,6 +68,7 @@ function call(id) {
 			.then((response) => {
 				if (response.ok) {
 					console.log("Input Data Transferred!!");
+					Minterms(Input);
 					GroupMaker();
 				} else {
 					console.log("Input Data Tranfer Failed");
@@ -120,7 +120,7 @@ function Minterms(Min) {
 //---------------Fetching Prime-Implecants------------------//
 
 function GroupMaker() {
-	fetch('Backend/php_executable/EPI.txt')
+	fetch('backend/executables/EPI.txt')
 		.then(response => response.text())
 		.then(data => {
 			const dataArray = data.split(/\r?\n/).filter(line => line.trim() !== '');

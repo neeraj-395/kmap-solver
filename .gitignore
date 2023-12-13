@@ -1,9 +1,9 @@
 .vscode
 **/.vscode/
-Source_Code/Implement.h
-Source_Code/Implement.c
-Source_Code/Implement.exe
-Source_Code/K-Map_Solver.exe
-Source_Code/EPI.txt
-Backend/php_executable/EPI.txt
-Source_Code/Troubleshoot.h
+source_code/Implement.h
+source_code/Implement.c
+source_code/Implement.exe
+source_code/K-Map_Solver.exe
+source_code/EPI.txt
+backend/executables/EPI.txt
+source_code/Troubleshoot.h
