@@ -1,0 +1,260 @@
+::-webkit-scrollbar{
+  width: 9px;
+}
+::-webkit-scrollbar-track{
+border-radius: 18px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(216, 212, 212);
+  border-radius: 18px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa8a8;
+}
+body {
+  margin-top: 0px;
+  scroll-behavior: smooth;
+}
+
+.heading {
+  margin-top: 15px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Libre Baskerville';
+  color: rgb(20, 20, 20);
+  font-size: 50px;
+}
+
+.heading:hover {
+  font-family: 'Libre Baskerville';
+  color: rgb(46, 46, 46);
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.headerimg{
+max-height: 100px;
+}
+.headerimg:hover{
+  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+}
+.headertxt{
+  height: 100%;
+  font-size: 2.8vw;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Libre Baskerville';
+  margin-top:10px;
+}
+.headertxt:hover{
+  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
+}
+@media(max-width:786px){
+  .headertxt{
+  font-size: 5vmin;
+  }
+}
+
+.para {
+  font-size: 25px;
+  font-family: 'Libre Baskerville';
+}
+
+.button {
+  outline: none;
+  background-color: hsl(120, 2%, 11%);
+  width: 215px;
+  height: 62px;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.button-name {
+  font-family: 'Libre Baskerville';
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+}
+
+.button-name:hover {
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  animation: zoom-in-zoom-out 1s ease;
+}
+
+.mention {
+  font-family: 'Libre Baskerville';
+  font-size: 25px;
+  color: rgb(0, 0, 255);
+}
+
+.mention:hover {
+  font-size: 25px;
+  text-align:left;
+  display:inline-block;
+  animation: zoom-in-zoom-out 1s ease;
+  color: rgb(50, 46, 46);
+}
+
+ul{
+  list-style-type:disc;
+}
+li{
+  font-size: 25px;
+  font-family: 'Libre Baskerville';
+  margin-bottom: 10px;
+}
+
+/* variable css */
+.head {
+  height: auto;
+  width: auto;
+}
+
+.mainsq {
+  height: 300px;
+  width: 270px;
+}
+.el1 {
+  height: 50px;
+  width: auto;
+}
+.b {
+  height: 50px;
+  width: 55px;
+  font-size: 20px;
+  float: right;
+  display: flex;
+  flex-direction:row;
+  align-items: end;
+  justify-content: center;
+}
+.b1 {
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  float: right; 
+  display: flex;
+  flex-direction:row;
+  align-items: end;
+  justify-content: center;
+}
+.el2 {
+  height: 100px;
+  width: 50px;
+  float: left;
+}
+.a1 {
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  float: left;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content: center;
+}
+.a {
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  float: left;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content: center;
+}
+.sq {
+  height: auto;
+  width: auto;
+  float: right;
+}
+.sq1 {
+  height: 50px;
+  width: 50px;
+  float: left;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.sq2 {
+  height: 50px;
+  width: 50px;
+  float: right;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.sq3 {
+  height: 50px;
+  width: 50px;
+  float: left;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.sq4 {
+  height: 50px;
+  width: 50px;
+  float: right;
+  border-color: black;
+  border-style: solid;
+  text-align: right;
+  display: flex;
+  flex-direction:row;
+  align-items:end;
+  justify-content:end;
+}
+.K-Map_Input {
+  height: 82%;
+  width: 69%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 25px;
+  user-select: none;
+}
+.result{
+height: auto;
+width: 460px;
+border: 2px solid black;
+display: flow-root;
+border-radius:12px; 
+}
