@@ -1,0 +1,42 @@
+<div class="mainsq" style="height: 50px; width: 160px; margin-left: 125px;">
+    <div class="el1">
+        <div class="b1">$$B$$</div>
+        <div class="b">$$\bar{B}$$</div>
+    </div>
+    <div class="el2">
+        <div class="a1" style="width: auto; float: none;">$$\bar{A}$$</div>
+        <div class="a" style="width: auto; float: none;">$$A$$</div>
+    </div>
+    <div class="sq" style="height: 105px;">
+        <div id="Minterm" class="sq1" style="border-right: 0px solid black;">
+            <text class="K-Map_Input" id="in0" onclick="toggle('in0')">0</text>
+            0
+        </div>
+        <div id="Minterm" class="sq2">
+            <text class="K-Map_Input" id="in1" onclick="toggle('in1')">0</text>
+            1
+        </div>
+        <br />
+        <div id="Minterm" class="sq3" style="border-top: 0px solid black;">
+            <text class="K-Map_Input" id="in2" onclick="toggle('in2')">0</text>
+            2
+        </div>
+        <div id="Minterm" class="sq4" style="border-left: 0px solid black; border-top: 0px solid black;">
+            <text class="K-Map_Input" id="in3" onclick="toggle('in3')">0</text>
+            3
+        </div>
+    </div>
+</div>
+<br>
+
+<button type="button" class="button" style="margin: 20px 0px 20px 125px;">
+    <span class="button-name" onclick="Inputs()">Submit</span>
+</button>
+
+<br>
+<div class="result">
+    <p><div style="font-size: 18px; text-align: center;">`f(A,B)\Rightarrow`&nbsp;<span id="Min">`\summ(phi)`</span></div></p>
+    <p style="overflow: break-word !important; font-size: 23px; text-align: center;">
+        \(y=\)&nbsp;<span style="font-size: 18px;" id="output">0</span>
+    </p>
+</div>
