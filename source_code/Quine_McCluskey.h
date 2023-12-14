@@ -8,14 +8,13 @@
 
 char **_2DPointer(int Rows, int Col);
 void _2DFreeArray(char **Array, int Rows);
-void Dec_to_Bin(char const *MinC, int sor, int soc, char **MinB);
-int CC(char const *MinC, int sor, char ch0, char ch1);
 bool DE(char **MinB, int soc, int M, int diff_posi);
+int CC(char const *MinC, int sor, char ch0, char ch1);
 int DC(char **MinB, int soc, int M, int N, int *diff_posi);
+void Dec_to_Bin(char const *MinC, int sor, int soc, char **MinB);
 int PT_Generator(char **MinB, int sor, int soc, int *PP, char Tick[]);
 int Prime_Implicant(char **MinB, char *PI, int soc, char Tick[], int soT);
 
-//----------------Decimal to Binary Coverter-------------------//
 void Dec_to_Bin(char const *MinC, int sor, int soc, char **MinB)
 {
   int Bit;
@@ -34,7 +33,6 @@ void Dec_to_Bin(char const *MinC, int sor, int soc, char **MinB)
   }
 }
 
-//----------------Character-Counter--------------------------//
 int CC(char const *MinC, int sor, char ch0, char ch1)
 {
   int count = 0;
@@ -44,7 +42,6 @@ int CC(char const *MinC, int sor, char ch0, char ch1)
   return count;
 }
 
-//-------------------Duplication_Eliminator----------------//
 bool DE(char **MinB, int soc, int M, int diff_posi)
 {
   for (int i = 0; i < soc; i++)
@@ -58,7 +55,6 @@ bool DE(char **MinB, int soc, int M, int diff_posi)
   return true;
 }
 
-//-----------------------Diffs_Counter-------------------------//
 int DC(char **MinB, int soc, int M, int N, int *diff_posi)
 {
   int diff_count = 0;
@@ -73,7 +69,6 @@ int DC(char **MinB, int soc, int M, int N, int *diff_posi)
   return diff_count;
 }
 
-//------------------------Pair & Tick Generator--------------------------//
 int PT_Generator(char **MinB, int sor, int soc, int *PP, char Tick[])
 {
   int PProw = 0, diff_posi;
@@ -97,7 +92,6 @@ int PT_Generator(char **MinB, int sor, int soc, int *PP, char Tick[])
   return PProw;
 }
 
-//-------------------Prime_Implicant_Collector------------------//
 int Prime_Implicant(char **MinB, char *PI, int soc, char Tick[], int soT)
 {
   static int Line = 0;
@@ -114,7 +108,6 @@ int Prime_Implicant(char **MinB, char *PI, int soc, char Tick[], int soT)
   return Line;
 }
 
-//---Initializing Dynamic_2D-Array----//
 char **_2DPointer(int Rows, int Col)
 {
   if (Rows < 1 || Col < 1)
@@ -128,7 +121,6 @@ char **_2DPointer(int Rows, int Col)
   return Array;
 }
 
-//--------Free The Allocated Array-------//
 void _2DFreeArray(char **Array, int Rows)
 {
   for (int i = 0; i < Rows; i++)
@@ -138,6 +130,5 @@ void _2DFreeArray(char **Array, int Rows)
   if (Array != NULL)
     free(Array);
 }
-//________________END__________________//
 
 #endif

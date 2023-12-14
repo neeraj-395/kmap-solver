@@ -1,129 +1,87 @@
-<div class="mainsq" style="margin-left:70px;">
-    <div class="el1">
-        <div class="b1">
-            <text>$$C$$</text>
-            <text>$$\bar{D}$$</text>
-        </div>
-        <div class="b">$$CD$$</div>
-        <div class="b1">
-            <text>$$\bar{C}$$</text>
-            <text>$$D$$</text>
-        </div>
-        <div class="b">
-            <text>$$\bar{C}$$</text>
-            <text>$$\bar{D}$$</text>
-        </div>
-    </div>
-    <div class="el2">
-        <div class="a1">
-            <text>$$\bar{A}$$</text>
-            <text>$$\bar{B}$$</text>
-        </div>
-        <div class="a1">
-            <text>$$\bar{A}$$</text>
-            <text>$$B$$</text>
-        </div>
-        <div class="a1">$$AB$$</div>
-        <div class="a">
-            <text>$$A$$</text>
-            <text>$$\bar{B}$$</text>
-        </div>
-    </div>
-    <div class="sq">
-        <!--1st row of 4 variable k-map-->
-        <div id="Minterm" class="sq1" style="border-right: 0px solid black">
-            <text class="K-Map_Input" id="in0" onclick="toggle('in0')">0</text>
-            0
-        </div>
-        <div id="Minterm" class="sq1" style="border-right: 0px solid black">
-            <text class="K-Map_Input" id="in1" onclick="toggle('in1')">0</text>
-            1
-        </div>
-        <div id="Minterm" class="sq2">
-            <text class="K-Map_Input" id="in2" onclick="toggle('in2')">0</text>
-            2
-        </div>
+<svg width="300" height="270" style="margin-left: 82px;">
+    <foreignObject x="50" y="0" width="200" height="50">
+        <div class="alignMin">`barC barD`</div>
+        <div class="alignMin">`barC D`</div>
+        <div class="alignMin">`CD`</div>
+        <div class="alignMin">`C barD`</div>
+    </foreignObject>
+    <foreignObject x="0" y="50" width="50" height="200">
+        <div style="justify-content:left" class="alignMin">`barA barB`</div>
+        <div style="justify-content:left" class="alignMin">`barA B`</div>
+        <div style="justify-content:left" class="alignMin">`AB`</div>
+        <div style="justify-content:left" class="alignMin">`A barB`</div>
+    </foreignObject>
 
-        <div id="Minterm" class="sq2" style="border-right: 0px solid black">
-            <text class="K-Map_Input" id="in3" onclick="toggle('in3')">0</text>
-            3
-        </div>
-        <br />
+    <rect class ="k-box" x="50" y="50"></rect>
+    <text id="in0" class="minterm" onclick="toggle('in0')" x="75" y="83">0</text>
+    <text class="minIndex" x="98" y="98">0</text>
 
-        <!--2nd Row of 4 varaible K-map-->
-        <div id="Minterm" class="sq3" style="border-top: 0px solid black">
-            <text class="K-Map_Input" id="in4" onclick="toggle('in4')">0</text>
-            4
-        </div>
+    <rect class ="k-box" x="100" y="50"></rect>
+    <text id="in1" class="minterm" onclick="toggle('in1')" x="125" y="83">0</text>
+    <text class="minIndex" x="148" y="98">1</text>
 
-        <div id="Minterm" class="sq3" style="border-left: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in5" onclick="toggle('in5')">0</text>
-            5
-        </div>
+    <rect class ="k-box" x="150" y="50"></rect>
+    <text id="in3" class="minterm" onclick="toggle('in3')" x="175" y="83">0</text>
+    <text class="minIndex" x="198" y="98">3</text>
 
-        <div id="Minterm" class="sq4" style="border-left: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in6" onclick="toggle('in6')">0</text>
-            6
-        </div>
+    <rect class ="k-box" x="200" y="50"></rect>
+    <text id="in2" class="minterm" onclick="toggle('in2')" x="225" y="83">0</text>
+    <text class="minIndex" x="248" y="98">2</text>
 
-        <div id="Minterm" class="sq4" style="border-left: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in7" onclick="toggle('in7')">0</text>
-            7
-        </div>
-        <br />
 
-        <!--3th Row of 4 variable k-map-->
-        <div id="Minterm" class="sq1" style="border-right: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in12" onclick="toggle('in12')"
-                style="height: 60%; padding-bottom: 10px; padding-left: 15px;">0</text>
-            12
-        </div>
+    <rect class ="k-box" x="50" y="100"></rect>
+    <text id="in4" class="minterm" onclick="toggle('in4')" x="75" y="133">0</text>
+    <text class="minIndex" x="98" y="148">4</text>
 
-        <div id="Minterm" class="sq1" style="border-right: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in13" onclick="toggle('in13')"
-                style="height: 60%; padding-bottom: 10px; padding-left: 15px;">0</text>
-            13
-        </div>
+    <rect class ="k-box" x="100" y="100"></rect>
+    <text id="in5" class="minterm" onclick="toggle('in5')" x="125" y="133">0</text>
+    <text class="minIndex" x="148" y="148">5</text>
 
-        <div id="Minterm" class="sq2" style="border-top: 0px solid black">
-            <text class="K-Map_Input" id="in14" onclick="toggle('in14')"
-                style="height: 60%; padding-bottom: 10px; padding-left: 15px;">0</text>
-            14
-        </div>
+    <rect class ="k-box" x="150" y="100"></rect>
+    <text id="in7" class="minterm" onclick="toggle('in7')" x="175" y="133">0</text>
+    <text class="minIndex" x="198" y="148">7</text>
 
-        <div id="Minterm" class="sq2" style="border-right: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in15" onclick="toggle('in15')"
-                style="height: 60%; padding-bottom: 10px; padding-left: 15px;">0</text>
-            15
-        </div>
-        <br />
+    <rect class ="k-box" x="200" y="100"></rect>
+    <text id="in6" class="minterm" onclick="toggle('in6')" x="225" y="133">0</text>
+    <text class="minIndex" x="248" y="148">6</text>
 
-        <!---4rd Row of 4 Varaible k-map-->
-        <div id="Minterm" class="sq3" style="border-top: 0px solid black">
-            <text class="K-Map_Input" id="in8" onclick="toggle('in8')">0</text>
-            8
-        </div>
-        
-        <div id="Minterm" class="sq3" style="border-left: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in9" onclick="toggle('in9')">0</text>
-            9
-        </div>
-        
-        <div id="Minterm" class="sq4" style="border-left: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in10" onclick="toggle('in10')"
-                style="height: 60%; padding-bottom: 10px; padding-left: 15px;">0</text>
-            10
-        </div>
-        
-        <div id="Minterm" class="sq4" style="border-left: 0px solid black; border-top: 0px solid black">
-            <text class="K-Map_Input" id="in11" onclick="toggle('in11')"
-                style="height: 60%; padding-bottom: 10px; padding-left: 15px;">0</text>
-            11
-        </div>
-        <br />
 
-    </div>
-</div>
+    
+    <rect class ="k-box"x="50" y="150"></rect>
+    <text id="in12" class="minterm" onclick="toggle('in12')" x="75" y="183">0</text>
+    <text class="minIndex" x="98" y="198">12</text>
+
+    <rect class ="k-box" x="100" y="150"></rect>
+    <text id="in13" class="minterm" onclick="toggle('in13')" x="125" y="183">0</text>
+    <text class="minIndex" x="148" y="198">13</text>
+
+    <rect class ="k-box" x="150" y="150"></rect>
+    <text id="in15" class="minterm" onclick="toggle('in15')" x="175" y="183">0</text>
+    <text class="minIndex" x="198" y="198">15</text>
+
+    <rect class ="k-box" x="200" y="150"></rect>
+    <text id="in14" class="minterm" onclick="toggle('in14')" x="225" y="183">0</text>
+    <text class="minIndex" x="248" y="198">14</text>
+
+
+    <rect class ="k-box" x="50" y="200"></rect>
+    <text id="in8" class="minterm" onclick="toggle('in8')" x="75" y="233">0</text>
+    <text class="minIndex" x="98" y="248">8</text>
+
+    <rect class ="k-box" x="100" y="200"></rect>
+    <text id="in9" class="minterm" onclick="toggle('in9')" x="125" y="233">0</text>
+    <text class="minIndex" x="148" y="248">9</text>
+
+    <rect class ="k-box" x="150" y="200"></rect>
+    <text id="in11" class="minterm" onclick="toggle('in11')" x="175" y="233">0</text>
+    <text class="minIndex" x="198" y="248">11</text>
+
+    <rect class ="k-box" x="200" y="200"></rect>
+    <text id="in10" class="minterm" onclick="toggle('in10')" x="225" y="233">0</text>
+    <text class="minIndex" x="248" y="248">10</text>
+
+</svg>
+<br>
 
 <button type="button" class="button" style="margin:-10px 0px 20px 125px;"> <!-- top |right - left| bottom -->
     <span class="button-name" onclick="Inputs()">Submit</span>

@@ -37,21 +37,17 @@ function toggle(id) {
 
 {
 	function Inputs() {
-		const divElement = document.querySelectorAll("#Minterm");
-		var valueofdiv = [];
+		let i=0;
+		const minIndex = document.querySelectorAll("text.minIndex");
+		const minterm = document.querySelectorAll("text.minterm");
+		var Indexs = [];
 		var Inputvalues = [];
 
-		divElement.forEach((divElement) => {
-			valueofdiv.push(
-				divElement.textContent.trim().replace(/ /g, "").split("\n")
-			);
+		minIndex.forEach((divElement) => {
+			Indexs.push(divElement.textContent);
 		});
-
-		valueofdiv.forEach((row) => {
-			row.forEach((col) => {
-				col = parseInt(row[1]);
-				Inputvalues[col] = row[0];
-			});
+		minterm.forEach((min) => {
+				Inputvalues[Indexs[i++]] = min.textContent;
 		});
 		Output(Inputvalues);
 	}

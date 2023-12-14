@@ -13,7 +13,11 @@ border-radius: 18px;
 }
 body {
   margin-top: 0px;
-  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family:Libre Baskerville;
+  src: url(LibreBaskerville.ttf);
 }
 
 .heading {
@@ -131,121 +135,44 @@ li{
   margin-bottom: 10px;
 }
 
-/* variable css */
-.head {
-  height: auto;
-  width: auto;
+/* Variable */
+.alignMin {
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  float:left;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+}
+.minIndex{
+  user-select: none;
+  fill:#000000;
+  text-anchor:end;
+  font-family:sans-serif;
+  font-size:15px;
+  cursor:default
+}
+.minterm{
+  user-select: none;
+  fill:#000000;
+  font-family:sans-serif;
+  text-anchor:middle;
+  font-size:25px; 
+  cursor: default;
 }
 
-.mainsq {
-  height: 300px;
-  width: 270px;
+.k-box{
+  height:50px;
+  width:50px; 
+  fill:#FFFFFF; 
+  stroke:#000000;
 }
-.el1 {
-  height: 50px;
-  width: auto;
-}
-.b {
-  height: 50px;
-  width: 55px;
-  font-size: 20px;
-  float: right;
-  display: flex;
-  flex-direction:row;
-  align-items: end;
-  justify-content: center;
-}
-.b1 {
-  height: 50px;
-  width: 50px;
-  font-size: 20px;
-  float: right; 
-  display: flex;
-  flex-direction:row;
-  align-items: end;
-  justify-content: center;
-}
-.el2 {
-  height: 100px;
-  width: 50px;
-  float: left;
-}
-.a1 {
-  height: 50px;
-  width: 50px;
-  font-size: 20px;
-  float: left;
-  display: flex;
-  flex-direction:row;
-  align-items:end;
-  justify-content: center;
-}
-.a {
-  height: 50px;
-  width: 50px;
-  font-size: 20px;
-  float: left;
-  display: flex;
-  flex-direction:row;
-  align-items:end;
-  justify-content: center;
-}
-.sq {
-  height: auto;
-  width: auto;
-  float: right;
-}
-.sq1 {
-  height: 50px;
-  width: 50px;
-  float: left;
-  border-color: black;
-  border-style: solid;
-  text-align: right;
-  display: flex;
-  flex-direction:row;
-  align-items:end;
-  justify-content:end;
-}
-.sq2 {
-  height: 50px;
-  width: 50px;
-  float: right;
-  border-color: black;
-  border-style: solid;
-  text-align: right;
-  display: flex;
-  flex-direction:row;
-  align-items:end;
-  justify-content:end;
-}
-.sq3 {
-  height: 50px;
-  width: 50px;
-  float: left;
-  border-color: black;
-  border-style: solid;
-  text-align: right;
-  display: flex;
-  flex-direction:row;
-  align-items:end;
-  justify-content:end;
-}
-.sq4 {
-  height: 50px;
-  width: 50px;
-  float: right;
-  border-color: black;
-  border-style: solid;
-  text-align: right;
-  display: flex;
-  flex-direction:row;
-  align-items:end;
-  justify-content:end;
-}
+
 .K-Map_Input {
-  height: 82%;
-  width: 69%;
+  height: 42px;
+  width: 50px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   font-size: 25px;

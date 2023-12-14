@@ -12,6 +12,36 @@ void minElim(char **table, int nom, int nopi, char *mintrack, char *epitrack);
 void cyclicfix(char **table, int nom, int nopi, char *mintrack, char *epitrack);
 void extractEPI(char **table, int nom, int nopi, char *mintrack, char *epitrack);
 
+int optrack(char *track, int size, int *posi)
+{
+    int n = 0;
+    for (int i = 0, w = 0; i < size; i++)
+    {
+        if (track[i] != '.' && track[i] != '#')
+        {
+            if (posi != NULL)
+                posi[w++] = i;
+            n++;
+        }
+    }
+    return n;
+}
+
+bool covercheck(char *PI, int var, int min)
+{
+    for (int i = (var - 1); i >= 0; i--)
+    {
+        if (min >= 0)
+        {
+            if ((PI[i] - '0') == (min % 2) || PI[i] == '_')
+                min >>= 1;
+            else
+                return false;
+        }
+    }
+    return true;
+}
+
 void minElim(char **table, int nom, int nopi, char *mintrack, char *epitrack)
 {
     int Adomi, Bdomi, opm[nom], opnom, oppi[nopi], opnopi;
@@ -69,21 +99,6 @@ void piElim(char **table, int nom, int nopi, char *mintrack, char *epitrack)
     }
 }
 
-int optrack(char *track, int size, int *posi)
-{
-    int n = 0;
-    for (int i = 0, w = 0; i < size; i++)
-    {
-        if (track[i] != '.' && track[i] != '#')
-        {
-            if (posi != NULL)
-                posi[w++] = i;
-            n++;
-        }
-    }
-    return n;
-}
-
 void extractEPI(char **table, int nom, int nopi, char *mintrack, char *epitrack)
 {
     int posi = nopi, opm[nom], opnom, oppi[nopi], opnopi; // no. of minterms after elimination
@@ -107,21 +122,6 @@ void extractEPI(char **table, int nom, int nopi, char *mintrack, char *epitrack)
             epitrack[posi] = '.';
         }
     }
-}
-
-bool covercheck(char *PI, int var, int min)
-{
-    for (int i = (var - 1); i >= 0; i--)
-    {
-        if (min >= 0)
-        {
-            if ((PI[i] - '0') == (min % 2) || PI[i] == '_')
-                min >>= 1;
-            else
-                return false;
-        }
-    }
-    return true;
 }
 
 void cyclicfix(char **table, int nom, int nopi, char *mintrack, char *epitrack)

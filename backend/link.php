@@ -11,7 +11,7 @@ $arrayData = (array)json_decode($input, true); // Decode the JSON data into a PH
 
 $stringinput = implode($arrayData); // array to string conversion
 
-$command = "$exePath" . " $stringinput";
+$command = realpath($exePath) . " $stringinput";
 
 if ($arrayData !== null) {
     shell_exec($command);
