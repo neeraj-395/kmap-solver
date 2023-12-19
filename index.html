@@ -56,9 +56,9 @@
         <span class="para">Simplified Boolean Expression:</span>\[\Rightarrow (A \wedge C)\]<br />
         <span class="para">Logic Function Notation:</span>\[f(A,B,....)=\sum m(0,1,2,3,.....)\]
     </p>
-    <br /><br />
+    <br><br>
 
-        <button type="button" class="button" onclick="Draw('k-map','variables/ii_variables.html')">
+    <button type="button" class="button" onclick="Draw('k-map','variables/ii_variables.html')">
             <span class="button-name">II&nbsp;&nbsp;Variables</span>
         </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -66,29 +66,12 @@
             <span class="button-name">III&nbsp;&nbsp;Variables </span>
         </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
     <button type="button" class="button" onclick="Draw('k-map','variables/iv_variables.html')">
             <span class="button-name">IV&nbsp;&nbsp;Variables</span>
         </button><br><br><br>
     
-    <div id="k-map" style="display: none;"></div>
+    <div id="k-map" style="display: none; user-select: none;"></div>
 
-    <h4 style="font-size: 28px; font-family: Libre Baskerville;">Why do we use the Quine-McCluskey Algorithm?</h4>
-    <p class="para">A logic minimization technique must have the following characteristics:</p>
-    <ul>
-        <li>It should have the capability of handling a large number of variables.</li>
-        <li>It should not depend on the ability of a human user for recognizing prime-implicants.</li>
-        <li>It should ensure a minimized expression.</li>
-        <li>It should be suitable for computer solution.</li>
-    </ul>
-    <p class="para">The Quine-McCluskey minimization technique satisfies the above requirements and hence can be effectively used for the
-    design of logic circuits. The K-Map technique is not suitable for handling the design of complex digital systems because
-    of the following disadvantages:</p>
-    <ul>
-        <li>Minimization of logic functions involving more than six variables is unwieldy.</li>
-        <li>Recognition of prime-implicants that may form part of the simplified function relies on the ability of the human
-            user making it difficult to be sure whether the best selection has been made.</li>
-    </ul>
     <p class="para">
         This project is developed using a combination of technologies:
         <ul>

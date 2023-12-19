@@ -104,11 +104,7 @@ max-height: 100px;
   font-size: 25px;
 }
 
-.button-name:hover {
-  color: white;
-  text-align: center;
-  display: inline-block;
-  font-size: 25px;
+.button:active {
   animation: zoom-in-zoom-out 1s ease;
 }
 
@@ -119,7 +115,6 @@ max-height: 100px;
 }
 
 .mention:hover {
-  font-size: 25px;
   text-align:left;
   display:inline-block;
   animation: zoom-in-zoom-out 1s ease;
