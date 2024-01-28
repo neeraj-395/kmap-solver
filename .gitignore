@@ -1,9 +1,9 @@
 .vscode
 **/.vscode/
-source_code/Implement.h
-source_code/Implement.c
-source_code/Implement.exe
-source_code/main.exe
-source_code/troubleshoot.h
-source_code/exp.c
-source_code/exp.exe
+src/Implement.h
+src/Implement.c
+src/Implement.exe
+src/main.exe
+src/troubleshoot.h
+src/exp.c
+src/exp.exe
