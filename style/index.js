@@ -35,8 +35,7 @@ function toggle(id) {
 
 // ---------------PHP Linking Functions-----------------//
 
-{
-	function Inputs() {
+function Inputs() {
 		let i=0;
 		const minIndex = document.querySelectorAll("text.minIndex");
 		const minterm = document.querySelectorAll("text.minterm");
@@ -49,11 +48,29 @@ function toggle(id) {
 		minterm.forEach((min) => {
 				Inputvalues[Indexs[i++]] = min.textContent;
 		});
-		Output(Inputvalues);
-	}
 
-	function Output(Input) {
-		var jsonArray = JSON.stringify(Input);
+		let _1sDec = "";
+		let XsDec = "";
+		let program_arguments = "";
+		for (let i = 0; i < Inputvalues.length; i++) {
+			let char = Inputvalues[i];
+			switch(char)
+			{
+				case '1': _1sDec += i.toString() + ',';
+						  break;
+				case 'X': XsDec += i.toString() + ',';
+						  break;
+			}
+		}
+		
+		program_arguments += (_1sDec !== "") ? _1sDec.slice(0, -1) : "\"(null)\"";
+		program_arguments += " !care= "
+		program_arguments += (XsDec !== "") ? XsDec.slice(0, -1) : "\"(null)\"";
+		Output(Inputvalues, program_arguments);
+}
+
+function Output(Input, program_arg) {
+		var jsonArray = JSON.stringify(program_arg);
 		fetch("backend/link.php", {
 			method: "POST",
 			headers: {
@@ -61,36 +78,38 @@ function toggle(id) {
 			},
 			body: jsonArray,
 		})
-			.then((response) => {
-				if (response.ok) {
-					console.log("Input Data Transferred!!");
-					Minterms(Input);
-					GroupMaker();
-				} else {
-					console.log("Input Data Tranfer Failed");
+			.then(response => {
+				if(response.ok){
+					console.log("Input Transfer Success");
+					return response.text();
 				}
+				else
+					throw new Error("Input Transfer Failed");
+			})
+			
+			.then(output => {
+				const dataArray = output.split(/\r?\n/);
+				booleanOutput(dataArray);
+				Minterms(Input);
+				Implicants_Input(dataArray);
 			})
 			.catch((error) => {
 				console.error("Error:", error);
 			});
-	}
+}
 
-	function OutputTransfer(Mathjax_Output) {
+function OutputTransfer(Mathjax_Output) {
 		const outputDiv = document.getElementById("output");
 		outputDiv.textContent = Mathjax_Output;
 		MathJax.typeset();
-	}
 }
 
 //------------------LOGIC-FUNCTION-NOTATION----------------------//
 
 function Minterms(Min) {
-	var i = 0,
-		j = 0,
-		k = 0;
-	var min = [],
-		dontC = [],
-		MinString;
+	var i = 0,j = 0,k = 0;
+	var min = [], dontC = [], MinString;
+	
 	Min.forEach((valueofMin) => {
 		if (valueofMin === "1") {
 			min[j] = i.toString();
@@ -104,35 +123,15 @@ function Minterms(Min) {
 
 	if (j === 0 && k === 0) MinString = "`summ(phi)`";
 	else if (j && k === 0) MinString = "`summ(" + min.join(",") + ")`";
-	else if (j && k)
-		MinString =
-			"`summ(" + min.join(",") + ")` `+` `d(" + dontC.join(",") + ")`";
-	else MinString = MinString = "`summ(phi)+d(" + dontC.join(",") + ")`";
+	else if (j && k) MinString = "`summ(" + min.join(",") + ")` `+` `d(" + dontC.join(",") + ")`";
+	else MinString = "`summ(phi)+d(" + dontC.join(",") + ")`";
 
 	document.getElementById("Min").textContent = MinString;
 	MathJax.typeset();
 }
 
-//---------------Fetching Prime-Implecants------------------//
-
-function GroupMaker() {
-	fetch('backend/executables/EPI.txt')
-		.then(response => response.text())
-		.then(data => {
-			const dataArray = data.split(/\r?\n/).filter(line => line.trim() !== '');
-			booleanOutput(dataArray)
-			Implicants_Input(dataArray);
-		})
-		.catch(error => {
-			console.error(error);
-		});
-}
-
-//---------------------------------------------------------//
-
-
-
 //--------------EPI's to MathJAX Converter----------------//
+
 function booleanOutput(minterms) {
 	let Mathjax_Output = [];
 	let sor = minterms.length;
@@ -143,15 +142,13 @@ function booleanOutput(minterms) {
 		OutputTransfer(Mathjax_Output);
 		return;
 	}
-	for (let i = 0; i < soc; i++) {
-		if (minterms[0][i] != '_') break;
-		if (i === (soc - 1)) {
-			Mathjax_Output = '1';
-			OutputTransfer(Mathjax_Output);
-			return;
-		}
+	else if (!(minterms[0].includes('1')) && !(minterms[0].includes('0'))) {
+		Mathjax_Output = '1';
+		OutputTransfer(Mathjax_Output);
+		return;
 	}
-	for (let i = 0, count = 0; i < sor; i++) {
+	
+	for (let i = 0; i < sor; i++) {
 		Mathjax_Output += '`(';
 		index += 2;
 		for (let j = 0; j < soc; j++) {
@@ -185,6 +182,7 @@ function booleanOutput(minterms) {
 	}
 	OutputTransfer(Mathjax_Output);
 }
+
 //--------------------------------------------------------//
 
 

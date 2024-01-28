@@ -5,7 +5,7 @@ chdir(__DIR__ . '/executables');
 $input = file_get_contents('php://input'); // Get the raw POST data
 
 //------!!IMPORTANT!!-----------//
-$exePath = 'K-Map_Solver.exe'; // if you are using this software on Linux change it to "K-Map_Linux"
+$exePath = 'main_program.exe';
 
 $arrayData = (array)json_decode($input, true); // Decode the JSON data into a PHP array
 
@@ -14,7 +14,10 @@ $stringinput = implode($arrayData); // array to string conversion
 $command = "$exePath" . " $stringinput";
 
 if ($arrayData !== null) {
-    shell_exec($command);
-    echo "Execution Done!!\n";
+    exec($command, $output, $return_val);
+    if(!$return_val)
+        echo implode("\n",$output);
+    else
+        http_response_code(400);
 } else
-    echo "Execution failed!!\n";
+    http_response_code(400);
