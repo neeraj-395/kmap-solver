@@ -5,5 +5,9 @@ src/Implement.c
 src/Implement.exe
 src/main.exe
 src/troubleshoot.h
-src/exp.c
-src/exp.exe
+src/experiment/exp.c
+src/experiment/exp.exe
+src/hashtable.o
+src/branching_method.o
+src/tabular_method.o
+src/libutils.o

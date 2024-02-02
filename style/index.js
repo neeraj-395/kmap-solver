@@ -64,7 +64,7 @@ function Inputs() {
 		}
 		
 		program_arguments += (_1sDec !== "") ? _1sDec.slice(0, -1) : "\"(null)\"";
-		program_arguments += " !care= "
+		program_arguments += " dcare= "
 		program_arguments += (XsDec !== "") ? XsDec.slice(0, -1) : "\"(null)\"";
 		Output(Inputvalues, program_arguments);
 }
