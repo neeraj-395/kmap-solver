@@ -1,5 +1,6 @@
 .vscode
 **/.vscode/
+src/experiment/
 src/Implement.h
 src/Implement.c
 src/Implement.exe
@@ -11,3 +12,4 @@ src/hashtable.o
 src/branching_method.o
 src/tabular_method.o
 src/libutils.o
+style/other_feature.js

@@ -1,24 +1,11 @@
-::-webkit-scrollbar{
-  width: 9px;
-}
-::-webkit-scrollbar-track{
-border-radius: 18px;
-}
-::-webkit-scrollbar-thumb{
-  background-color: rgb(216, 212, 212);
-  border-radius: 18px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #aaa8a8;
-}
-body {
-  margin-top: 0px;
-}
+body { margin-top: 0px; }
+::-webkit-scrollbar{ width: 9px; }
+::-webkit-scrollbar-track{ border-radius: 18px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa8a8; }
+::-webkit-scrollbar-thumb{ background-color: rgb(216, 212, 212); border-radius: 18px; }
+.root{ --height : 50px; --width : 50px; --font_size : 18px; }
 
-@font-face {
-  font-family:Libre Baskerville;
-  src: url(LibreBaskerville.ttf);
-}
+@font-face { font-family:Libre Baskerville; src: url(LibreBaskerville.ttf); }
 
 .heading {
   margin-top: 15px;
@@ -36,25 +23,16 @@ body {
 }
 
 @keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
+  0% { transform: scale(1, 1); }
 
-  50% {
-    transform: scale(1.05, 1.05);
-  }
+  50% { transform: scale(1.05, 1.05); }
 
-  100% {
-    transform: scale(1, 1);
-  }
+  100% { transform: scale(1, 1); }
 }
 
-.headerimg{
-max-height: 100px;
-}
-.headerimg:hover{
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-}
+.headerimg{ max-height: 100px; }
+.headerimg:hover{ filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%); }
+
 .headertxt{
   height: 100%;
   font-size: 2.8vw;
@@ -65,14 +43,9 @@ max-height: 100px;
   font-family: 'Libre Baskerville';
   margin-top:10px;
 }
-.headertxt:hover{
-  filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%);
-}
-@media(max-width:786px){
-  .headertxt{
-  font-size: 5vmin;
-  }
-}
+.headertxt:hover{ filter: drop-shadow(1.5px 1.5px 1.5px grey) contrast(130%); }
+
+@media(max-width:786px){ .headertxt{ font-size: 5vmin; } }
 
 .para {
   font-size: 25px;
@@ -82,15 +55,15 @@ max-height: 100px;
 .button {
   outline: none;
   background-color: hsl(120, 2%, 11%);
-  width: 215px;
-  height: 62px;
+  width: auto;
+  height: auto;
   border: none;
   color: white;
-  padding: 15px 30px;
+  padding: 5px 15px;
   text-align: center;
   display: inline-block;
-  font-size: 20px;
-  margin: 10px 2px;
+  font-size: 24px;
+  font-family: 'Libre Baskerville';
   cursor: pointer;
   text-decoration: none;
   border-radius: 8px;
@@ -132,9 +105,9 @@ li{
 
 /* Variable */
 .alignMin {
-  height: 50px;
-  width: 50px;
-  font-size: 20px;
+  height: var(--height);
+  width: var(--width);
+  font-size: var(--font_size);
   float:left;
   display: flex;
   flex-direction:row;
@@ -159,20 +132,12 @@ li{
 }
 
 .k-box{
-  height:50px;
-  width:50px; 
+  height:var(--height);
+  width:var(--width); 
   fill:#FFFFFF; 
   stroke:#000000;
 }
 
-.K-Map_Input {
-  height: 42px;
-  width: 50px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
-  font-size: 25px;
-  user-select: none;
-}
 .result{
 height: auto;
 width: 460px;

@@ -4,7 +4,7 @@
     <title>K-Map Solver</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.75" />
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <link rel="icon" type="image/png" href="./style/favicon.ico" sizes="152x152">
     <script>
         MathJax = {
@@ -13,10 +13,11 @@
     </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="style/index.js"></script>
+    <script src="style/inputhandler.js"></script>
+    <script src="style/karnaughmap.js"></script>
 </head>
 
-<body>
+<body onload = "initKMAP('k-map')">
 
     <header style="block-size: 100px;">
         <a href="https://dseu.ac.in/" target="_blank" style="text-decoration: none;">
@@ -46,8 +47,7 @@
           target="_blank" style="text-decoration: none; color:rgb(68, 68, 249)">
             <span class="para">Quine-McCluskey Algorithm</span></a>
         with user-friendly interactivity to simplify boolean expression
-        solutions. Whether you're a student, an electronics enthusiast, our application is
-        designed to assist you in simplifying digital logical expressions.<br />
+        solutions.<br />
     </p>
 
     <p style="font-size: 22px; font-family: 'Libre Baskerville'">
@@ -57,18 +57,24 @@
         <span class="para">Logic Function Notation:</span>\[f(A,B,....)=\sum m(0,1,2,3,.....)\]
     </p>
     <br><br>
-
-    <button type="button" class="button" onclick="Draw('k-map','variables/ii_variables.html')">
-            <span class="button-name">II&nbsp;&nbsp;Variables</span>
-        </button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="button" onclick="Draw('k-map','variables/iii_variables.html')">
-            <span class="button-name">III&nbsp;&nbsp;Variables </span>
-        </button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="button" onclick="Draw('k-map','variables/iv_variables.html')">
-            <span class="button-name">IV&nbsp;&nbsp;Variables</span>
-        </button><br><br><br>
+    
+    <p class = "para">
+        Number of input variables: 
+        <select style = "font-size: 24px;" onchange = "initKMAP('k-map');" id = nVar_id>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>    
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        &nbsp;
+        <button type="button" class="button" onclick = "initKMAP('k-map');">Reset</button>
+        &nbsp;
+        <button type="button" class="button" onclick = "Inputs();">Submit</button>
+    </p>
     
     <div id="k-map" style="display: none; user-select: none;"></div>
 
@@ -80,7 +86,7 @@
         <li>JavaScript for both frontend and backend.</li>
         <li>Using PHP to link a C program with web technologies.</li>
         <li>You can find this website source code at :
-        <a href="https://github.com/Neeraj395-N3rd/K-Map_Solver" target="_blank" style="text-decoration: none"><span
+        <a href="https://github.com/neeraj-395/K-Map_Solver" target="_blank" style="text-decoration: none"><span
                 class="name">GitHub</span></a></li>
         </ul>
     </p>
@@ -88,8 +94,8 @@
             This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. It is not meant for deployment on the internet.
         </p>
 
-    <p class="para">Φ Developed by:<br />
-        <a href="https://github.com/Neeraj395-N3rd" target="_blank" style="text-decoration: none">
+    <p class="para">&Psi;&nbsp;Developed by:<br />
+        <a href="https://github.com/neeraj-395" target="_blank" style="text-decoration: none">
           <span class="mention">§ Neeraj_Singh</span>
         </a><br />
         <a href="https://www.instagram.com/itz_krishu_4u/" target="_blank" style="text-decoration: none">

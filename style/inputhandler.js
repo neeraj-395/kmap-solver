@@ -1,26 +1,22 @@
-//------------K-Map Fetch Function----------------------//
-
-function Draw(container_id, ex_filename) {
+function initKMAP(container_id) {
 	var container = document.getElementById(container_id);
+	var vars = document.getElementById("nVar_id").value;
+
 	if (container.style.display == "none") {
-		fetch(ex_filename)
-			.then((response) => response.text())
-			.then((htmlCode) => {
-				container.innerHTML = "";
-				container.innerHTML = htmlCode;
-				MathJax.typeset();
-			})
-			.catch((error) => {
-				console.error("Error loading HTML:", error);
-			});
+		container.innerHTML = "";
+		if(vars == 5 || vars == 6) {
+			document.body.style.setProperty('--font_size', '16px');
+			drawKmap(vars, 60, container_id);
+		}
+		else
+			drawKmap(vars, 50, container_id);
+		MathJax.typeset();
 		container.style.display = "block";
 	} else {
 		container.style.display = "none";
-		return Draw(container_id, ex_filename);
+		return initKMAP(container_id, vars);
 	}
 }
-
-//------------Ternary-Toggle Input Function(0-->1-->X)---------------------//
 
 function toggle(id) {
 	var Min = document.getElementById(id).innerHTML;
@@ -32,8 +28,6 @@ function toggle(id) {
 		document.getElementById(id).innerHTML = "0";
 	}
 }
-
-// ---------------PHP Linking Functions-----------------//
 
 function Inputs() {
 		let i=0;
@@ -48,6 +42,13 @@ function Inputs() {
 		minterm.forEach((min) => {
 				Inputvalues[Indexs[i++]] = min.textContent;
 		});
+
+		if(!Inputvalues.includes('1'))
+		{
+			let min = ['(null)']; 
+			booleanOutput(min);
+			return;
+		}
 
 		let _1sDec = "";
 		let XsDec = "";
@@ -66,10 +67,10 @@ function Inputs() {
 		program_arguments += (_1sDec !== "") ? _1sDec.slice(0, -1) : "\"(null)\"";
 		program_arguments += " dcare= "
 		program_arguments += (XsDec !== "") ? XsDec.slice(0, -1) : "\"(null)\"";
-		Output(Inputvalues, program_arguments);
+		Output(program_arguments);
 }
 
-function Output(Input, program_arg) {
+function Output(program_arg) {
 		var jsonArray = JSON.stringify(program_arg);
 		fetch("backend/link.php", {
 			method: "POST",
@@ -90,8 +91,6 @@ function Output(Input, program_arg) {
 			.then(output => {
 				const dataArray = output.split(/\r?\n/);
 				booleanOutput(dataArray);
-				Minterms(Input);
-				Implicants_Input(dataArray);
 			})
 			.catch((error) => {
 				console.error("Error:", error);
@@ -104,47 +103,16 @@ function OutputTransfer(Mathjax_Output) {
 		MathJax.typeset();
 }
 
-//------------------LOGIC-FUNCTION-NOTATION----------------------//
-
-function Minterms(Min) {
-	var i = 0,j = 0,k = 0;
-	var min = [], dontC = [], MinString;
-	
-	Min.forEach((valueofMin) => {
-		if (valueofMin === "1") {
-			min[j] = i.toString();
-			j++;
-		} else if (valueofMin === "X") {
-			dontC[k] = i.toString();
-			k++;
-		}
-		i++;
-	});
-
-	if (j === 0 && k === 0) MinString = "`summ(phi)`";
-	else if (j && k === 0) MinString = "`summ(" + min.join(",") + ")`";
-	else if (j && k) MinString = "`summ(" + min.join(",") + ")` `+` `d(" + dontC.join(",") + ")`";
-	else MinString = "`summ(phi)+d(" + dontC.join(",") + ")`";
-
-	document.getElementById("Min").textContent = MinString;
-	MathJax.typeset();
-}
-
-//--------------EPI's to MathJAX Converter----------------//
-
 function booleanOutput(minterms) {
 	let Mathjax_Output = [];
 	let sor = minterms.length;
 	let soc = minterms[0].length;
 	let index = 0;
-	if (soc == 1) {
-		Mathjax_Output = '0';
-		OutputTransfer(Mathjax_Output);
-		return;
-	}
+	
+	if(minterms[0] === "(null)") return OutputTransfer('0');
+
 	else if (!(minterms[0].includes('1')) && !(minterms[0].includes('0'))) {
-		Mathjax_Output = '1';
-		OutputTransfer(Mathjax_Output);
+		OutputTransfer('1');
 		return;
 	}
 	
@@ -182,58 +150,3 @@ function booleanOutput(minterms) {
 	}
 	OutputTransfer(Mathjax_Output);
 }
-
-//--------------------------------------------------------//
-
-
-//---------------Minterms_Group_Generator-----------------//
-
-var Groups, index;
-var _weight, _1sweight;
-
-function Implicants_Input(EPIs) {
-	Groups = [];
-	index = 0;
-	for (let i = 0; i < EPIs.length; i++) {
-		let PI = EPIs[i].match(/./g);
-		Groups.push([]);
-		GroupG(PI);
-		index++;
-	}
-	console.log(Groups); // you can use this Groups array for ring logic!!
-}
-
-function GroupG(Epi) {
-	_weight = [];
-	_1sweight = 0;
-	const _n = WeightG(Epi);
-	for (let i = 0, j, k; i < _n; i++) {
-		k = i;
-		j = 0;
-		let temp = 0;
-		while (k > 0) {
-			if (k % 2) temp += _weight[j];
-			j++;
-			k >>= 1;
-		}
-		temp += _1sweight;
-		Groups[index].push(temp);
-	}
-}
-
-function WeightG(Epi) {
-	const soc = Epi.length;
-	let n = 0;
-	for (let i = 0; i < soc; i++) {
-		switch (Epi[soc - i - 1]) {
-			case '_': _weight[n] = 2 ** i;
-				n++;
-				break;
-			case '1': _1sweight += 2 ** i;
-				break;
-		}
-	}
-	return 2 ** n;
-}
-
-//-------------------------------------------------------//
