@@ -1,8 +1,8 @@
 # Karnaugh Map (K-Map) Solver Web Application
 
-Welcome to the Karnaugh Map (K-Map) Solver Web Application repository! This web application allows you to simplify Boolean expressions using K-Maps for up to 4 variables. It has both a backend written in C language and a frontend built with HTML, CSS, and JavaScript.
+Welcome to the Karnaugh Map (K-Map) Solver Web Application repository! This web application allows you to simplify Boolean expressions using K-Maps for up to 8 variables. It has both a backend written in C language and a frontend built with HTML, CSS, and JavaScript.
 
-![image](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/10ddef5a-5344-484e-8dda-05f925798847)
+![image](https://github.com/neeraj-395/K-Map_Solver/assets/141737975/a425ec0d-a398-4caa-b945-65ffcceccc3c)
 
 ***Thier is still some features that will be added soon.***
 
@@ -27,7 +27,7 @@ These instructions will help you set up and run the K-Map Solver Web Application
 1. Clone this repository to your local machine, or you can also go with the zip code:
 
    ```bash
-   https://github.com/Neeraj395-N3rd/K-Map_Solver.git
+   https://github.com/neeraj-395/K-Map_Solver.git
 
 2. Navigate to the project directory:
 
@@ -55,19 +55,12 @@ if you want to contribute to this project, please follow these steps:
 ## License
 This project is licensed under the MIT License - see the [License](LICENSE) file for details. 
 
-## Organization:
-
-![logo](https://github.com/Neeraj395-N3rd/K-Map_Solver/assets/141737975/07fe5d08-8d23-4a6f-b225-40375c78d0f5)
-
-## Note
-This project is intended for educational purposes and as a demonstration of integrating C programming with web technologies. It is not meant for deployment on the internet.
-
 ## Contact
 If you have any questions or suggestions, feel free to contact us at `nsinghh.04@gmail.com`
 
 ## Developed by
 * [Priyanshu Garg](https://github.com/priyanshugarg00 "Priyanshu Garg")
-* [Neeraj Singh](https://github.com/Neeraj395-N3rd "Neeraj Singh")
+* [Neeraj Singh](https://github.com/neeraj-395 "Neeraj Singh")
 * [Sudhanshu Kaul](https://github.com/Sudhanshukaul123 "Sudhanshu Kaul")
-* [Rahul_Kumar_Tiwari](https://github.com/rahul07tiwari "Rahul Tiwari")
+* [Rahul K.Tiwari](https://github.com/rahul07tiwari "Rahul K.Tiwari")
 
